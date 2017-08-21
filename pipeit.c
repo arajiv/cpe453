@@ -24,8 +24,7 @@ int main()
 		checkSysCall(dup2(fd[0], STDIN_FILENO));
 		checkSysCall(close(fd[0]));
 
-		int fw;
-		checkSysCall(fw = open("outfile", O_CREAT|O_WRONLY));
+		int fw = checkSysCall(open("outfile", O_CREAT|O_WRONLY));
 		checkSysCall(dup2(fw, STDOUT_FILENO));
 		checkSysCall(close(fw));	
 		checkSysCall(execlp("sort", "sort", "-r", NULL));
