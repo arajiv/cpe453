@@ -26,7 +26,7 @@ int main()
 		
 		char *filename = "outfile";
 		int fw;
-		if ((fw = open("outfile", O_CREAT|O_WRONLY)) == -1)
+		if ((fw = open("outfile", O_CREAT|O_RDWR)) == -1)
 		{
 			perror(filename);
 			exit(EXIT_FAILURE);
@@ -39,10 +39,9 @@ int main()
 	else
 	{
 		// parent: creates another child process
-		
 		pid_t pid2;
 
-		if ((pid = fork()) < 0)
+		if ((pid2 = fork()) < 0)
 		{
 			printf("fork failed\n");
 			return -1;
