@@ -27,7 +27,7 @@ int main()
 		char *filename = "outfile";
 		int fw;
 
-		if ((fw = open("outfile", O_CREAT|O_RDWR)) == -1)
+		if ((fw = open(filename, O_CREAT|O_RDWR)) == -1)
 		{
 			perror(filename);
 			exit(EXIT_FAILURE);
