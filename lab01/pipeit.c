@@ -3,7 +3,7 @@
 #include <unistd.h> 	// provides pipe, fork, dup2, and execlp
 #include <stdlib.h>	// provides exit
 
-int checkSysCall(int returnVal);
+int checkSysCall(int returnVal, char *filename);
 
 int main()
 {
@@ -20,22 +20,16 @@ int main()
 	else if (pid == 0)
 	{
 		// child 1: sort -r > outfile
-		checkSysCall(close(fd[1]));					/* child 1 will not write to pipe  */
-		checkSysCall(dup2(fd[0], STDIN_FILENO));	/* stdin now points to the read-end of the pipe */
-		checkSysCall(close(fd[0]));					/* file descriptor is not needed anymore */
+		checkSysCall(close(fd[1]), NULL);					/* child 1 will not write to pipe  */
+		checkSysCall(dup2(fd[0], STDIN_FILENO), NULL);	/* stdin now points to the read-end of the pipe */
+		checkSysCall(close(fd[0]), NULL);					/* file descriptor is not needed anymore */
 		
 		char *filename = "outfile";
-		int fw;
+		int fw = checkSysCall(open(filename, O_CREAT|O_RDWR), filename);
 
-		if ((fw = open(filename, O_CREAT|O_RDWR)) == -1)
-		{
-			perror(filename);
-			exit(EXIT_FAILURE);
-		}
-
-		checkSysCall(dup2(fw, STDOUT_FILENO));					/* stdout now points to file descriptor of outfile */
-		checkSysCall(close(fw));									/* file descriptor not needed anymore */
-		checkSysCall(execlp("sort", "sort", "-r", NULL));	/* executes sort -r > outfile */
+		checkSysCall(dup2(fw, STDOUT_FILENO), NULL);					/* stdout now points to fd of outfile */
+		checkSysCall(close(fw), NULL);									/* file descriptor not needed anymore */
+		checkSysCall(execlp("sort", "sort", "-r", NULL), NULL);	/* executes sort -r > outfile */
 	}
 	
 	// parent: creates another child process
@@ -49,14 +43,14 @@ int main()
 	else if (pid2 == 0)
 	{
 		// child 2: ls
-		checkSysCall(close(fd[0]));						/* child 2 will not read from pipe */
-		checkSysCall(dup2(fd[1], STDOUT_FILENO));		/* stdout now points to the write-end of the pipe */
-		checkSysCall(close(fd[1]));						/* file descriptor is not needed anymore */
-		checkSysCall(execlp("ls", "ls", NULL));		/* execute ls */
+		checkSysCall(close(fd[0]), NULL);						/* child 2 will not read from pipe */
+		checkSysCall(dup2(fd[1], STDOUT_FILENO), NULL);		/* stdout now points to the write-end of the pipe */
+		checkSysCall(close(fd[1]), NULL);						/* file descriptor is not needed anymore */
+		checkSysCall(execlp("ls", "ls", NULL), NULL);		/* execute ls */
 	}
 		
-	checkSysCall(close(fd[0]));
-	checkSysCall(close(fd[1]));
+	checkSysCall(close(fd[0]), NULL);
+	checkSysCall(close(fd[1]), NULL);
 
 	if (waitpid(pid, &status, 0) == -1)
 	{
@@ -66,11 +60,14 @@ int main()
 	return 0;
 }
 
-int checkSysCall(int returnVal)
+int checkSysCall(int returnVal, char *filename)
 {
 	if (returnVal == -1)
 	{
-		perror(NULL);
+		if (filename != NULL)
+			perror(filename);
+		else	
+			perror(NULL);
 		exit(EXIT_FAILURE);
 	}
 	return returnVal;
