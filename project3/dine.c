@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include <time.h>
 
 #define NUM_CHILDREN 2
 #define LEFT_NEIGHBOR(i)	(i+NUM_CHILDREN-1)%NUM_CHILDREN
@@ -55,7 +56,15 @@ void *philosopher_cycle(void *i)
 void eat(int id)
 {
 	printf("philosopher %d is eating\n", id);
-	sleep(2);
+	struct timespec tv;
+	int msec = (int)(((double) random()/RAND_MAX)*1000);
+
+	tv.tv_sec = 0;
+	tv.tv_nsec = 1000000*msec;
+	if (nanosleep(&tv, NULL) == -1)
+	{
+		perror("nanosleep");
+	}
 }
 
 void take_fork(int i, int num)
