@@ -22,19 +22,11 @@ int num_forks[NUM_PHILOSOPHERS];
 int cycles[NUM_PHILOSOPHERS];
 
 void eat(int id);
+void think(int id);
+void nap_time();
 void take_fork(int id, int num);
 void put_fork_down(int i);
 void test(int i, int num);
-
-void *child(void *id)
-{
-	int whoami = *(int*) id;
-
-	printf("Child %d (%d):		Hello.\n\n", whoami, (int) getpid());
-	printf("Child %d (%d):		Goodbye.\n\n", whoami, (int) getpid());
-
-	return NULL;
-}
 
 void *philosopher_cycle(void *i)
 {
@@ -42,36 +34,44 @@ void *philosopher_cycle(void *i)
 	
 	while (cycles[id] < NUM_CYCLES)
 	{
-		printf("philosopher %d has %d forks\n", id, num_forks[id]);
+		//printf("philosopher %d has %d forks\n", id, num_forks[id]);
 		take_fork(id, num_forks[id]);
 		num_forks[id]++;
-		printf("philosopher %d has %d forks\n", id, num_forks[id]);
+		//printf("philosopher %d has %d forks\n", id, num_forks[id]);
 		take_fork(id, num_forks[id]);
 		num_forks[id]++;
-		printf("philosopher %d has %d forks\n", id, num_forks[id]);
+		//printf("philosopher %d has %d forks\n", id, num_forks[id]);
 		eat(id);
 		put_fork_down(id);
+		think(id);
 		cycles[id]++;
 	}
 
 	return NULL;
 }
 
+void think(int id)
+{
+	printf("philosopher %d is THINKING\n", id);
+	nap_time();
+}
+
 void eat(int id)
 {
 	printf("philosopher %d is EATING\n", id);
+	nap_time();
+}
+
+void nap_time()
+{
 	struct timespec tv;
 	int msec = (int)(((double) random()/RAND_MAX)*1000);
 
 	tv.tv_sec = 0;
 	tv.tv_nsec = 1000000*msec;
-	
-	printf("philosopher %d is going to eat for %d ms\n", id, msec);
 
 	if (nanosleep(&tv, NULL) == -1)
-	{
-		perror("nanosleep");
-	}
+		perror("nano_sleep");
 }
 
 void take_fork(int i, int num)
@@ -93,11 +93,11 @@ void put_fork_down(int i)
 	sem_wait(&mutex);
 	forks[left_fork] = 0;
 	num_forks[i]--;
-	printf("philosopher %d let go of fork %d\n", i, left_fork);
+	//printf("philosopher %d let go of fork %d\n", i, left_fork);
 
 	forks[right_fork] = 0;
 	num_forks[i]--;
-	printf("philosopher %d let go of fork %d\n", i, right_fork);
+	//printf("philosopher %d let go of fork %d\n", i, right_fork);
 
 
 	if (cycles[LEFT_NEIGHBOR(i)] < NUM_CYCLES)
@@ -126,18 +126,18 @@ void test(int i, int num)
 			if (forks[right_fork] == 0)
 			{	
 				forks[right_fork] = 1;
-				printf("philosopher %d grabbed fork %d\n", i, right_fork);
+				//printf("philosopher %d grabbed fork %d\n", i, right_fork);
 				sem_post(&s[i]);
 			}
 		}
 		// odd philosophers will attempt to grab the left fork first
 		else
 		{
-			printf("philosopher %d is checking fork %d\n", i, left_fork);
+			//printf("philosopher %d is checking fork %d\n", i, left_fork);
 			if (forks[left_fork] == 0)
 			{
 				forks[left_fork] = 1;
-				printf("philosopher %d grabbed fork %d\n", i, left_fork);
+				//printf("philosopher %d grabbed fork %d\n", i, left_fork);
 				sem_post(&s[i]);
 			}
 		}
@@ -151,7 +151,7 @@ void test(int i, int num)
 			if (forks[left_fork] == 0)
 			{
 				forks[left_fork] = 1;
-				printf("philosopher %d grabbed fork %d\n", i, left_fork);
+				//printf("philosopher %d grabbed fork %d\n", i, left_fork);
 				sem_post(&s[i]);
 			}
 		}
@@ -161,7 +161,7 @@ void test(int i, int num)
 			if (forks[right_fork] == 0)
 			{
 				forks[right_fork] = 1;
-				printf("philosopher %d grabbed fork %d\n", i, right_fork);
+				//printf("philosopher %d grabbed fork %d\n", i, right_fork);
 				sem_post(&s[i]);
 			}
 		}
@@ -170,13 +170,13 @@ void test(int i, int num)
 
 int main(int argc, char *argv[])
 {
-	pid_t pid;
+	//pid_t pid;
 	int i;
 	int id[NUM_PHILOSOPHERS];
 	pthread_t childid[NUM_PHILOSOPHERS];
 
 	sem_init(&mutex, 0, 1);
-	pid = getpid();
+	//pid = getpid();
 
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
@@ -192,7 +192,7 @@ int main(int argc, char *argv[])
 
 		if (res != 0)
 		{
-			fprintf(stderr, "Child %i:	%s\n",i,strerror(errno));
+			//fprintf(stderr, "Child %i:	%s\n",i,strerror(errno));
 			exit(-1);
 		}
 	}
@@ -200,10 +200,10 @@ int main(int argc, char *argv[])
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
 		pthread_join(childid[i], NULL);
-		printf("Parent (%d):		childid %d exited.\n\n", (int) pid, (int) childid[i]);
+		//printf("Parent (%d):		childid %d exited.\n\n", (int) pid, (int) childid[i]);
 	}
 
-	printf("Parent (%d):		Goodbye.\n\n", (int) pid);
+	//printf("Parent (%d):		Goodbye.\n\n", (int) pid);
 	
 	sem_destroy(&mutex);
 
