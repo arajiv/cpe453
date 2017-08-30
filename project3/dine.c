@@ -8,15 +8,18 @@
 #include <time.h>
 
 #ifndef NUM_PHILOSOPHERS
-#define NUM_PHILOSOPHERS 5
+#define NUM_PHILOSOPHERS 2
 #endif
 
 #define NUM_CYCLES 1
 #define LEFT_NEIGHBOR(i)	(i+NUM_PHILOSOPHERS-1)%NUM_PHILOSOPHERS
 #define RIGHT_NEIGHBOR(i)	(i+1)%NUM_PHILOSOPHERS
 
+enum state {IDLE, EATING, THINKING};
+
 sem_t mutex;
 sem_t s[NUM_PHILOSOPHERS];
+sem_t sections[NUM_PHILOSOPHERS];
 int forks[NUM_PHILOSOPHERS];
 int num_forks[NUM_PHILOSOPHERS];
 int cycles[NUM_PHILOSOPHERS];
@@ -27,38 +30,176 @@ void nap_time();
 void take_fork(int id, int num);
 void put_fork_down(int i);
 void test(int i, int num);
+void print_state_change(int id, int state);
 
 void *philosopher_cycle(void *i)
 {
 	int id = *(int*) i;
+	enum state current_state = IDLE;
 	
 	while (cycles[id] < NUM_CYCLES)
 	{
-		//printf("philosopher %d has %d forks\n", id, num_forks[id]);
+		print_state_change(id, current_state);
 		take_fork(id, num_forks[id]);
 		num_forks[id]++;
-		//printf("philosopher %d has %d forks\n", id, num_forks[id]);
+
 		take_fork(id, num_forks[id]);
 		num_forks[id]++;
-		//printf("philosopher %d has %d forks\n", id, num_forks[id]);
+		
+		current_state = EATING;
+		print_state_change(id, current_state);
 		eat(id);
+		current_state = IDLE;
 		put_fork_down(id);
+		print_state_change(id, current_state);
+		
+		//put_fork_down(id);
+		
+		current_state = THINKING;
+		print_state_change(id, current_state);
 		think(id);
+		current_state = IDLE;
+		print_state_change(id, current_state);
+
 		cycles[id]++;
 	}
 
 	return NULL;
 }
 
+void print_state_change(int id, int state)
+{
+	if (id == 0)
+	{
+		int val, val2;
+		sem_getvalue(&sections[0], &val);
+		sem_getvalue(&sections[1], &val2);
+		//printf("before wait(a): a %d b %d\n", val, val2);
+		sem_wait(&sections[0]);
+
+		sem_getvalue(&sections[0], &val);
+		sem_getvalue(&sections[1], &val2);
+		//printf("after wait(a): a %d b %d\n", val, val2);
+
+		if (state == IDLE)
+			printf("|A-----\t\t");
+		else if (state == EATING)
+			printf("|A----- Eat\t");
+		else if (state == THINKING)
+			printf("|A----- Think\t");
+		sem_post(&sections[1]);
+		sem_getvalue(&sections[0], &val);
+		sem_getvalue(&sections[1], &val2);
+		//printf("after post(a): a %d b %d\n", val, val2);
+	}
+	else if (id == 1)
+	{
+		int v, v2;
+		//printf("about to read sections(b)\n");
+		sem_getvalue(&sections[1], &v);;
+		sem_getvalue(&sections[0], &v2);
+		//printf("read sections(b)\n");
+		//printf("before wait(b): b %d a %d\n", v, v2);
+		sem_wait(&sections[1]);
+		
+		sem_getvalue(&sections[1], &v);
+		sem_getvalue(&sections[0], &v2);
+		//printf("after wait(b): b %d a %d\n", v, v2);
+
+		if (state == IDLE)
+			printf("|B-----\t\t|\n");
+		else if (state == EATING)
+			printf("|B----- Eat\t|\n");
+		else if (state == THINKING)
+			printf("|B----- Think\t|\n");
+
+		sem_post(&sections[0]);
+		sem_getvalue(&sections[1], &v);
+		sem_getvalue(&sections[0], &v2);
+		//printf("after post(b): b %d a %d\n", v, v2);
+	}
+	/*
+	else if (id == 2)
+	{
+		int val, val2;
+		sem_getvalue(&sections[2], &val);
+		sem_getvalue(&sections[3], &val2);
+		printf("c %d d %d\n", val, val2);
+		sem_wait(&sections[2]);
+
+		
+		if (state == IDLE)
+			printf("|C-----\t\t");
+		else if (state == EATING)
+			printf("|C----- Eat\t");
+		else if (state == THINKING)
+			printf("|C----- Think\t");
+		
+		sem_post(&sections[3]);
+	}
+	else if (id == 3)
+	{
+		int val, val2;
+		sem_getvalue(&sections[3], &val);
+		sem_getvalue(&sections[4], &val2);
+		printf("d %d e %d\n", val, val2);
+		sem_wait(&sections[3]);
+		
+		
+		if (state == IDLE)
+			printf("|D-----\t\t");
+		else if (state == EATING)
+			printf("|D----- Eat\t");
+		else if (state == THINKING)
+			printf("|D----- Think\t");
+		
+
+		sem_post(&sections[4]);
+	}
+	else if (id == 4)
+	{
+		int val, val2;
+		sem_getvalue(&sections[4], &val);
+		sem_getvalue(&sections[0], &val2);
+		printf("e %d a %d\n", val, val2);
+		sem_wait(&sections[4]);
+
+		
+		if (state == IDLE)
+			printf("|E-----\t\t|\n");
+		else if (state == EATING)
+			printf("|E----- Eat\t|\n");
+		else if (state == THINKING)
+			printf("|E----- Think\t|\n");
+		
+
+		sem_post(&sections[0]);
+	}
+	
+	else
+	{
+		if (state == IDLE)
+			printf("|-----\t\t");
+		else if (state == EATING)
+			printf("|----- Eat\t");
+		else if (state == THINKING)
+			printf("|----- Think\t");
+
+		sem_post(&sections[1]);
+		sem_wait(&sections[0]);
+	}
+	*/
+}
+
 void think(int id)
 {
-	printf("philosopher %d is THINKING\n", id);
+	//printf("philosopher %c is THINKING\n", 'A' + id);
 	nap_time();
 }
 
 void eat(int id)
 {
-	printf("philosopher %d is EATING\n", id);
+	//printf("philosopher %c is EATING\n", 'A' + id);
 	nap_time();
 }
 
@@ -185,6 +326,7 @@ int main(int argc, char *argv[])
 		cycles[i] = 0;
 	}
 
+	sem_post(&sections[0]);
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
 		int res;
@@ -206,6 +348,11 @@ int main(int argc, char *argv[])
 	//printf("Parent (%d):		Goodbye.\n\n", (int) pid);
 	
 	sem_destroy(&mutex);
+	for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		sem_destroy(&s[i]);
+	
+	for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		sem_destroy(&sections[i]);
 
 	return 0;
 }
