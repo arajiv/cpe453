@@ -8,10 +8,10 @@
 #include <time.h>
 
 #ifndef NUM_PHILOSOPHERS
-#define NUM_PHILOSOPHERS 5
+#define NUM_PHILOSOPHERS 27
 #endif
 
-#define NUM_CYCLES 2
+int num_cycles = 1;
 #define LEFT_NEIGHBOR(i)	(i+NUM_PHILOSOPHERS-1)%NUM_PHILOSOPHERS
 #define RIGHT_NEIGHBOR(i)	(i+1)%NUM_PHILOSOPHERS
 
@@ -39,7 +39,7 @@ void *philosopher_cycle(void *i)
 	int fork_grabbed;
 	enum state current_state = IDLE;
 	
-	while (cycles[id] < NUM_CYCLES)
+	while (cycles[id] < num_cycles)
 	{
 		fork_grabbed = take_fork(id, num_forks[id]);
 		current_state = GRABBED_FIRST_FORK;
@@ -83,7 +83,7 @@ void print_state_change(int id, int state, int fork_grabbed)
 	char dashes[20] = "";
 
 	if (id < (NUM_PHILOSOPHERS-1))
-		left_fork = id+1;
+		left_fork = id + 1;
 	
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		strcat(dashes, "-");
@@ -126,11 +126,13 @@ void print_state_change(int id, int state, int fork_grabbed)
 	{
 		char temp[15];
 		char middle[NUM_PHILOSOPHERS] = "";
+
 		sprintf(sec[id],"|");
-		if (id == 1 && forks[left_fork] >= 0)
-			fork_grabbed = left_fork;
-		else if (id == 1 && forks[right_fork] >= 0)
+		
+		if (forks[right_fork] >= 0)
 			fork_grabbed = right_fork;
+		else if (forks[left_fork] >= 0)
+			fork_grabbed = left_fork;
 		for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		{
 			if (i == fork_grabbed)
@@ -225,10 +227,10 @@ void put_fork_down(int i)
 	current_state = IDLE;
 	print_state_change(i, current_state, -1);
 
-	if (cycles[LEFT_NEIGHBOR(i)] < NUM_CYCLES)
+	if (cycles[LEFT_NEIGHBOR(i)] < num_cycles)
 		test(LEFT_NEIGHBOR(i), num_forks[LEFT_NEIGHBOR(i)]);
 
-	if (cycles[RIGHT_NEIGHBOR(i)] < NUM_CYCLES)
+	if (cycles[RIGHT_NEIGHBOR(i)] < num_cycles)
 		test(RIGHT_NEIGHBOR(i), num_forks[RIGHT_NEIGHBOR(i)]);
 
 	sem_post(&mutex);
@@ -296,9 +298,49 @@ int test(int i, int num)
 
 void print_header(int n)
 {
-	printf("|================|================|================|================|================|\n");
-	printf("|        A       |        B       |        C       |        D       |        E       |\n");
-	printf("|================|================|================|================|================|\n");
+	int i;
+	for (i = 0; i < n-1; i++)
+		printf("|================");
+	printf("|================|\n");
+		
+
+	for (i = 0; i < n-1; i++)
+		printf("|        %c       ", 'A' + i);
+	printf("|        %c       |\n", 'A' + i);
+
+	
+	for (i = 0; i < n-1; i++)
+		printf("|================");
+	printf("|================|\n");
+	
+	int j;
+	for (j = 0; j < n; j++)
+	{
+		printf("|");
+		for (i = 0; i < n; i++)
+			printf("%c", '-');           
+
+		for (;i < 16; i++)
+			printf(" ");
+	}
+	printf("|\n");
+}
+
+void check_args(int argc, char *argv[])
+{
+	if (argc > 2)
+	{
+		printf("usage: ./dine -ncX, where X is some positive integer\n");
+		exit(-1);
+	}
+	else if (argc == 2)
+	{
+		if (sscanf(argv[1], "-nc%d", &num_cycles) != 1)
+		{
+			printf("usage: ./dine -ncX, where X is some positive integer\n");
+			exit(-1);
+		}
+	}
 }
 
 int main(int argc, char *argv[])
@@ -306,6 +348,9 @@ int main(int argc, char *argv[])
 	int i;
 	int id[NUM_PHILOSOPHERS];
 	pthread_t childid[NUM_PHILOSOPHERS];
+	
+	srandom(time(NULL));
+	check_args(argc, argv);
 
 	sem_init(&mutex, 0, 1);
 
