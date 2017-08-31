@@ -1,2 +1,2 @@
 dine: dine.c
-	gcc -Wall -pthread -o dine dine.c
+	gcc -Wall -pthread -g -o dine dine.c

@@ -11,11 +11,11 @@
 #define NUM_PHILOSOPHERS 2
 #endif
 
-#define NUM_CYCLES 1
+#define NUM_CYCLES 2
 #define LEFT_NEIGHBOR(i)	(i+NUM_PHILOSOPHERS-1)%NUM_PHILOSOPHERS
 #define RIGHT_NEIGHBOR(i)	(i+1)%NUM_PHILOSOPHERS
 
-enum state {IDLE, EATING, THINKING};
+enum state {IDLE, EATING, THINKING, FINISHED, GRABBED_FIRST_FORK, GRABBED_SECOND_FORK};
 
 sem_t mutex;
 sem_t s[NUM_PHILOSOPHERS];
@@ -23,43 +23,51 @@ sem_t sections[NUM_PHILOSOPHERS];
 int forks[NUM_PHILOSOPHERS];
 int num_forks[NUM_PHILOSOPHERS];
 int cycles[NUM_PHILOSOPHERS];
+char sectionA[20];
+char sectionB[20];
 
 void eat(int id);
 void think(int id);
 void nap_time();
-void take_fork(int id, int num);
+int take_fork(int id, int num);
 void put_fork_down(int i);
-void test(int i, int num);
-void print_state_change(int id, int state);
+int test(int i, int num);
+void print_state_change(int id, int state, int fork_grabbed);
 
 void *philosopher_cycle(void *i)
 {
 	int id = *(int*) i;
+	int fork_grabbed;
 	enum state current_state = IDLE;
 	
 	while (cycles[id] < NUM_CYCLES)
 	{
-		print_state_change(id, current_state);
-		take_fork(id, num_forks[id]);
+		//print_state_change(id, current_state, -1);
+
+		fork_grabbed = take_fork(id, num_forks[id]);
+		current_state = GRABBED_FIRST_FORK;
+		print_state_change(id, current_state, fork_grabbed);
 		num_forks[id]++;
 
-		take_fork(id, num_forks[id]);
+		fork_grabbed = take_fork(id, num_forks[id]);
+		current_state = GRABBED_SECOND_FORK;
+		print_state_change(id, current_state, fork_grabbed);
 		num_forks[id]++;
 		
 		current_state = EATING;
-		print_state_change(id, current_state);
+		print_state_change(id, current_state, -1);
 		eat(id);
-		current_state = IDLE;
+
+		current_state = FINISHED;
+		print_state_change(id, current_state, -1);
+
 		put_fork_down(id);
-		print_state_change(id, current_state);
-		
-		//put_fork_down(id);
 		
 		current_state = THINKING;
-		print_state_change(id, current_state);
+		print_state_change(id, current_state, -1);
 		think(id);
 		current_state = IDLE;
-		print_state_change(id, current_state);
+		print_state_change(id, current_state, -1);
 
 		cycles[id]++;
 	}
@@ -67,57 +75,61 @@ void *philosopher_cycle(void *i)
 	return NULL;
 }
 
-void print_state_change(int id, int state)
+void print_state_change(int id, int state, int fork_grabbed)
 {
+	
+	sem_wait(&sections[0]);
+
 	if (id == 0)
 	{
-		int val, val2;
-		sem_getvalue(&sections[0], &val);
-		sem_getvalue(&sections[1], &val2);
-		//printf("before wait(a): a %d b %d\n", val, val2);
-		sem_wait(&sections[0]);
-
-		sem_getvalue(&sections[0], &val);
-		sem_getvalue(&sections[1], &val2);
-		//printf("after wait(a): a %d b %d\n", val, val2);
-
+		if (strlen(sectionB) == 0)
+			sprintf(sectionB,"|B-----\t\t|\n");
+		
 		if (state == IDLE)
-			printf("|A-----\t\t");
+			sprintf(sectionA,"|A-----\t\t");
 		else if (state == EATING)
-			printf("|A----- Eat\t");
+			sprintf(sectionA,"|A01--- Eat\t");
 		else if (state == THINKING)
-			printf("|A----- Think\t");
-		sem_post(&sections[1]);
-		sem_getvalue(&sections[0], &val);
-		sem_getvalue(&sections[1], &val2);
-		//printf("after post(a): a %d b %d\n", val, val2);
+			sprintf(sectionA,"|A----- Think\t");
+		else if (state == GRABBED_FIRST_FORK)
+		{
+			if (fork_grabbed == 0)
+				sprintf(sectionA,"|A0----\t\t");
+			else
+				sprintf(sectionA,"|A-1---\t\t");
+		}
+		else if (state == GRABBED_SECOND_FORK || state == FINISHED)
+		{
+			sprintf(sectionA,"|A01---\t\t");
+		}
+		else
+			sprintf(sectionA,"|A-----\t\t");
 	}
 	else if (id == 1)
 	{
-		int v, v2;
-		//printf("about to read sections(b)\n");
-		sem_getvalue(&sections[1], &v);;
-		sem_getvalue(&sections[0], &v2);
-		//printf("read sections(b)\n");
-		//printf("before wait(b): b %d a %d\n", v, v2);
-		sem_wait(&sections[1]);
-		
-		sem_getvalue(&sections[1], &v);
-		sem_getvalue(&sections[0], &v2);
-		//printf("after wait(b): b %d a %d\n", v, v2);
+		if (strlen(sectionA) == 0)
+			sprintf(sectionA,"|A-----\t\t|\n");
 
 		if (state == IDLE)
-			printf("|B-----\t\t|\n");
+			sprintf(sectionB,"|B-----\t\t|\n");
 		else if (state == EATING)
-			printf("|B----- Eat\t|\n");
+			sprintf(sectionB,"|B01--- Eat\t|\n");
 		else if (state == THINKING)
-			printf("|B----- Think\t|\n");
-
-		sem_post(&sections[0]);
-		sem_getvalue(&sections[1], &v);
-		sem_getvalue(&sections[0], &v2);
-		//printf("after post(b): b %d a %d\n", v, v2);
+			sprintf(sectionB,"|B----- Think\t|\n");
+		else if (state == GRABBED_FIRST_FORK)
+		{
+			if (fork_grabbed == 0)
+				sprintf(sectionB,"|B0----\t\t|\n");
+			else
+				sprintf(sectionB,"|B-1---\t\t|\n");
+		}
+		else if (state == GRABBED_SECOND_FORK || state == FINISHED)
+			sprintf(sectionB,"|B01---\t\t|\n");
 	}
+
+	printf("%s%s", sectionA, sectionB);
+
+	sem_post(&sections[0]);
 	/*
 	else if (id == 2)
 	{
@@ -215,18 +227,21 @@ void nap_time()
 		perror("nano_sleep");
 }
 
-void take_fork(int i, int num)
+int take_fork(int i, int num)
 {
+	int fork_grabbed;
 	sem_wait(&mutex);
-	test(i, num);	
+	fork_grabbed = test(i, num);	
 	sem_post(&mutex);
 	sem_wait(&s[i]);		/* blocks if no forks are not acquired */
+	return fork_grabbed;
 }
 
 void put_fork_down(int i)
 {
 	int right_fork = i;
 	int left_fork = 0;
+	int current_state;
 
 	if (i < (NUM_PHILOSOPHERS-1))
 		left_fork = i+1;
@@ -234,12 +249,14 @@ void put_fork_down(int i)
 	sem_wait(&mutex);
 	forks[left_fork] = 0;
 	num_forks[i]--;
-	//printf("philosopher %d let go of fork %d\n", i, left_fork);
+	current_state = GRABBED_FIRST_FORK;
+	print_state_change(i, current_state, right_fork);
+
 
 	forks[right_fork] = 0;
 	num_forks[i]--;
-	//printf("philosopher %d let go of fork %d\n", i, right_fork);
-
+	current_state = IDLE;
+	print_state_change(i, current_state, -1);
 
 	if (cycles[LEFT_NEIGHBOR(i)] < NUM_CYCLES)
 		test(LEFT_NEIGHBOR(i), num_forks[LEFT_NEIGHBOR(i)]);
@@ -250,10 +267,9 @@ void put_fork_down(int i)
 	sem_post(&mutex);
 }
 
-void test(int i, int num)
+int test(int i, int num)
 {
-	int right_fork = i;
-	int left_fork = 0;
+	int right_fork = i, left_fork = 0;
 	
 	if (i < (NUM_PHILOSOPHERS-1))
 		left_fork = i + 1;
@@ -267,8 +283,8 @@ void test(int i, int num)
 			if (forks[right_fork] == 0)
 			{	
 				forks[right_fork] = 1;
-				//printf("philosopher %d grabbed fork %d\n", i, right_fork);
 				sem_post(&s[i]);
+				return right_fork;
 			}
 		}
 		// odd philosophers will attempt to grab the left fork first
@@ -278,8 +294,8 @@ void test(int i, int num)
 			if (forks[left_fork] == 0)
 			{
 				forks[left_fork] = 1;
-				//printf("philosopher %d grabbed fork %d\n", i, left_fork);
 				sem_post(&s[i]);
+				return left_fork;
 			}
 		}
 	}
@@ -292,8 +308,8 @@ void test(int i, int num)
 			if (forks[left_fork] == 0)
 			{
 				forks[left_fork] = 1;
-				//printf("philosopher %d grabbed fork %d\n", i, left_fork);
 				sem_post(&s[i]);
+				return left_fork;
 			}
 		}
 		else
@@ -302,11 +318,13 @@ void test(int i, int num)
 			if (forks[right_fork] == 0)
 			{
 				forks[right_fork] = 1;
-				//printf("philosopher %d grabbed fork %d\n", i, right_fork);
 				sem_post(&s[i]);
+				return right_fork;
 			}
 		}
 	}
+
+	return -1;
 }
 
 int main(int argc, char *argv[])
