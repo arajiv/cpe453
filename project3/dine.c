@@ -8,7 +8,7 @@
 #include <time.h>
 
 #ifndef NUM_PHILOSOPHERS
-#define NUM_PHILOSOPHERS 2
+#define NUM_PHILOSOPHERS 5
 #endif
 
 #define NUM_CYCLES 2
@@ -23,8 +23,7 @@ sem_t sections[NUM_PHILOSOPHERS];
 int forks[NUM_PHILOSOPHERS];
 int num_forks[NUM_PHILOSOPHERS];
 int cycles[NUM_PHILOSOPHERS];
-char sectionA[20];
-char sectionB[20];
+char sec[NUM_PHILOSOPHERS][20];
 
 void eat(int id);
 void think(int id);
@@ -42,8 +41,6 @@ void *philosopher_cycle(void *i)
 	
 	while (cycles[id] < NUM_CYCLES)
 	{
-		//print_state_change(id, current_state, -1);
-
 		fork_grabbed = take_fork(id, num_forks[id]);
 		current_state = GRABBED_FIRST_FORK;
 		print_state_change(id, current_state, fork_grabbed);
@@ -80,127 +77,97 @@ void print_state_change(int id, int state, int fork_grabbed)
 	
 	sem_wait(&sections[0]);
 
-	if (id == 0)
-	{
-		if (strlen(sectionB) == 0)
-			sprintf(sectionB,"|B-----\t\t|\n");
-		
-		if (state == IDLE)
-			sprintf(sectionA,"|A-----\t\t");
-		else if (state == EATING)
-			sprintf(sectionA,"|A01--- Eat\t");
-		else if (state == THINKING)
-			sprintf(sectionA,"|A----- Think\t");
-		else if (state == GRABBED_FIRST_FORK)
-		{
-			if (fork_grabbed == 0)
-				sprintf(sectionA,"|A0----\t\t");
-			else
-				sprintf(sectionA,"|A-1---\t\t");
-		}
-		else if (state == GRABBED_SECOND_FORK || state == FINISHED)
-		{
-			sprintf(sectionA,"|A01---\t\t");
-		}
-		else
-			sprintf(sectionA,"|A-----\t\t");
-	}
-	else if (id == 1)
-	{
-		if (strlen(sectionA) == 0)
-			sprintf(sectionA,"|A-----\t\t|\n");
+	int i;
+	int right_fork = id;
+	int left_fork = 0;
+	char dashes[20] = "";
 
-		if (state == IDLE)
-			sprintf(sectionB,"|B-----\t\t|\n");
-		else if (state == EATING)
-			sprintf(sectionB,"|B01--- Eat\t|\n");
-		else if (state == THINKING)
-			sprintf(sectionB,"|B----- Think\t|\n");
-		else if (state == GRABBED_FIRST_FORK)
-		{
-			if (fork_grabbed == 0)
-				sprintf(sectionB,"|B0----\t\t|\n");
-			else
-				sprintf(sectionB,"|B-1---\t\t|\n");
-		}
-		else if (state == GRABBED_SECOND_FORK || state == FINISHED)
-			sprintf(sectionB,"|B01---\t\t|\n");
-	}
-
-	printf("%s%s", sectionA, sectionB);
-
-	sem_post(&sections[0]);
-	/*
-	else if (id == 2)
-	{
-		int val, val2;
-		sem_getvalue(&sections[2], &val);
-		sem_getvalue(&sections[3], &val2);
-		printf("c %d d %d\n", val, val2);
-		sem_wait(&sections[2]);
-
-		
-		if (state == IDLE)
-			printf("|C-----\t\t");
-		else if (state == EATING)
-			printf("|C----- Eat\t");
-		else if (state == THINKING)
-			printf("|C----- Think\t");
-		
-		sem_post(&sections[3]);
-	}
-	else if (id == 3)
-	{
-		int val, val2;
-		sem_getvalue(&sections[3], &val);
-		sem_getvalue(&sections[4], &val2);
-		printf("d %d e %d\n", val, val2);
-		sem_wait(&sections[3]);
-		
-		
-		if (state == IDLE)
-			printf("|D-----\t\t");
-		else if (state == EATING)
-			printf("|D----- Eat\t");
-		else if (state == THINKING)
-			printf("|D----- Think\t");
-		
-
-		sem_post(&sections[4]);
-	}
-	else if (id == 4)
-	{
-		int val, val2;
-		sem_getvalue(&sections[4], &val);
-		sem_getvalue(&sections[0], &val2);
-		printf("e %d a %d\n", val, val2);
-		sem_wait(&sections[4]);
-
-		
-		if (state == IDLE)
-			printf("|E-----\t\t|\n");
-		else if (state == EATING)
-			printf("|E----- Eat\t|\n");
-		else if (state == THINKING)
-			printf("|E----- Think\t|\n");
-		
-
-		sem_post(&sections[0]);
-	}
+	if (id < (NUM_PHILOSOPHERS-1))
+		left_fork = id+1;
 	
-	else
-	{
-		if (state == IDLE)
-			printf("|-----\t\t");
-		else if (state == EATING)
-			printf("|----- Eat\t");
-		else if (state == THINKING)
-			printf("|----- Think\t");
+	for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		strcat(dashes, "-");
 
-		sem_post(&sections[1]);
-		sem_wait(&sections[0]);
+	for (i = 0; i < NUM_PHILOSOPHERS; i++)
+	{
+		if (i != id && strlen(sec[i]) == 0)
+		{
+			sprintf(sec[i],"|%-16s", dashes);
+			if (i == (NUM_PHILOSOPHERS -1))
+				strcat(sec[i], "|\n");
+		}
 	}
-	*/
+
+	if (state == IDLE)
+		sprintf(sec[id],"|%-16s", dashes);
+	else if (state == THINKING)
+	{
+		strcat(dashes, " Think");
+		sprintf(sec[id],"|%-16s", dashes);
+	}
+	else if (state == EATING)
+	{
+		char temp[15];
+		char middle[NUM_PHILOSOPHERS] = "";
+		sprintf(sec[id],"|");
+		for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		{
+			if (i == left_fork || i == right_fork)
+				sprintf(temp, "%d", i);
+			else 
+				sprintf(temp, "%c", '-');
+			strcat(middle, temp);
+		}
+		strcat(middle, " Eat");
+		sprintf(temp, "%-16s", middle);
+		strcat(sec[id], temp);
+	}
+	else if (state == GRABBED_FIRST_FORK)
+	{
+		char temp[15];
+		char middle[NUM_PHILOSOPHERS] = "";
+		sprintf(sec[id],"|");
+		if (id == 1 && forks[left_fork] >= 0)
+			fork_grabbed = left_fork;
+		else if (id == 1 && forks[right_fork] >= 0)
+			fork_grabbed = right_fork;
+		for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		{
+			if (i == fork_grabbed)
+				sprintf(temp, "%d", i);
+			else 
+				sprintf(temp, "%c", '-');
+			strcat(middle, temp);
+		}
+
+		sprintf(temp, "%-16s", middle);
+		strcat(sec[id], temp);
+	}
+	else if (state == GRABBED_SECOND_FORK || state == FINISHED)
+	{
+		char temp[15];
+		char middle[NUM_PHILOSOPHERS] = "";
+		sprintf(sec[id],"|");
+		for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		{
+			if (i == left_fork || i == right_fork)
+				sprintf(temp, "%d", i);
+			else 
+				sprintf(temp, "%c", '-');
+			strcat(middle, temp);
+		}
+
+		sprintf(temp, "%-16s", middle);
+		strcat(sec[id], temp);
+	}
+
+	if (id == (NUM_PHILOSOPHERS-1))
+		strcat(sec[id], "|\n");
+	
+	for (i = 0; i < NUM_PHILOSOPHERS; i++)
+		printf("%s", sec[i]);
+	
+	sem_post(&sections[0]);
 }
 
 void think(int id)
@@ -327,15 +294,20 @@ int test(int i, int num)
 	return -1;
 }
 
+void print_header(int n)
+{
+	printf("|================|================|================|================|================|\n");
+	printf("|        A       |        B       |        C       |        D       |        E       |\n");
+	printf("|================|================|================|================|================|\n");
+}
+
 int main(int argc, char *argv[])
 {
-	//pid_t pid;
 	int i;
 	int id[NUM_PHILOSOPHERS];
 	pthread_t childid[NUM_PHILOSOPHERS];
 
 	sem_init(&mutex, 0, 1);
-	//pid = getpid();
 
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
@@ -345,6 +317,7 @@ int main(int argc, char *argv[])
 	}
 
 	sem_post(&sections[0]);
+	print_header(NUM_PHILOSOPHERS);
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
 		int res;
@@ -352,7 +325,7 @@ int main(int argc, char *argv[])
 
 		if (res != 0)
 		{
-			//fprintf(stderr, "Child %i:	%s\n",i,strerror(errno));
+			fprintf(stderr, "Child %i:	%s\n",i,strerror(errno));
 			exit(-1);
 		}
 	}
@@ -360,11 +333,8 @@ int main(int argc, char *argv[])
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
 		pthread_join(childid[i], NULL);
-		//printf("Parent (%d):		childid %d exited.\n\n", (int) pid, (int) childid[i]);
 	}
 
-	//printf("Parent (%d):		Goodbye.\n\n", (int) pid);
-	
 	sem_destroy(&mutex);
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		sem_destroy(&s[i]);
