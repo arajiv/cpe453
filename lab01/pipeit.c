@@ -1,3 +1,10 @@
+/*
+ *       name: Heriberto Rodriguez
+ *      class: cpe453-03
+ * assignment: lab01
+ *       date: 09/15/17
+ */
+
 #include <stdio.h>	// provides printf
 #include <fcntl.h>	// provides constants O_CREAT and O_WRONLY
 #include <unistd.h> 	// provides pipe, fork, dup2, and execlp
