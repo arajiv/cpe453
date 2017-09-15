@@ -52,10 +52,13 @@ int main()
 	checkSysCall(close(fd[0]), NULL);
 	checkSysCall(close(fd[1]), NULL);
 
-	if (waitpid(pid, &status, 0) == -1)
-	{
-		printf("error with child 1\n");
-	}
+   checkSysCall(waitpid(pid, &status, 0), NULL);         /* wait for child executing sort -r > outfile */
+   
+   // checks if the process exited normally
+   if (WIFEXITED(status))
+      return WEXITSTATUS(status);
+   else
+      printf("Child did not terminate with exit\n");    
 
 	return 0;
 }
@@ -70,5 +73,6 @@ int checkSysCall(int returnVal, char *filename)
 			perror(NULL);
 		exit(EXIT_FAILURE);
 	}
+
 	return returnVal;
 }
