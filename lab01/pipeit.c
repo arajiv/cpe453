@@ -32,7 +32,7 @@ int main()
 		checkSysCall(close(fd[0]), NULL);					/* file descriptor is not needed anymore */
 		
 		char *filename = "outfile";
-		int fw = checkSysCall(open(filename, O_CREAT|O_RDWR), filename);
+		int fw = checkSysCall(open(filename, O_CREAT|O_RDWR, S_IRUSR|S_IWUSR), filename);
 
 		checkSysCall(dup2(fw, STDOUT_FILENO), NULL);					/* stdout now points to fd of outfile */
 		checkSysCall(close(fw), NULL);									/* file descriptor not needed anymore */

@@ -5,3 +5,6 @@ pipeit: pipeit.o
 
 pipeit.o: pipeit.c
 	$(CC) -c pipeit.c
+
+clean:
+	rm -f *.o pipeit outfile
