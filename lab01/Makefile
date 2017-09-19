@@ -1,10 +1,11 @@
-CC=gcc
+CC = gcc
+CFLAGS = -Wall -g -Wpedantic
 
 pipeit: pipeit.o
-	$(CC) pipeit.o -o pipeit
+	$(CC) $(CFLAGS)  pipeit.o -o pipeit
 
 pipeit.o: pipeit.c
-	$(CC) -c pipeit.c
+	$(CC) $(CFLAGS) -c pipeit.c
 
 clean:
 	rm -f *.o pipeit outfile
