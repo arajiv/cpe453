@@ -68,7 +68,8 @@ void *realloc(void *ptr, size_t size)
 			/* expansion in place: try to combine neighboring blocks */
 			// try to combine previous block with current block
 			if (block->prev != NULL && (block->prev)->in_use == 0 &&
-				aligned_size <= ((block->prev)->size + META_DATA_SIZE + block->size))
+				aligned_size <= ((block->prev)->size + 
+				META_DATA_SIZE + block->size))
 			{
 				puts("combining with previous block\n");
 				new_block = combine_blocks(block->prev);
@@ -76,7 +77,8 @@ void *realloc(void *ptr, size_t size)
 			}
 			// try to combine next block with current block
 			else if (block->next != NULL && (block->next)->in_use == 0 &&
-				aligned_size <= ((block->next)->size + META_DATA_SIZE + block->size))
+				aligned_size <= ((block->next)->size + 
+				META_DATA_SIZE + block->size))
 			{
 				puts("combining with next block\n");
 				combine_blocks(new_block);
@@ -92,7 +94,7 @@ void *realloc(void *ptr, size_t size)
 				memcpy(new_block->d, block->d, block->size);
 				combine_blocks(new_block);
 			}
-			/* could not combine blocks so look for another one or make one with malloc */
+			/* could not combine blocks, use malloc */
 			else
 			{
 				void *new_unit;
@@ -258,7 +260,8 @@ void free(void *ptr)
 	}
 	else
 	{
-		fprintf(stderr, "%p: pointer being freed was not allocated by malloc\n", ptr);
+		fprintf(stderr, "%p: pointer being freed was not allocated by malloc\n", 
+			ptr);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -321,13 +324,15 @@ Block* add_block(Block* prev_block, size_t size)
 	// calculate the unused space if the heap has already been created
 	if (prev_block)
 	{
-		top_of_last_block = prev_block + (META_DATA_SIZE + prev_block->size)/sizeof(Block);
+		top_of_last_block = prev_block + 
+			(META_DATA_SIZE + prev_block->size)/sizeof(Block);
 		unused_space = top_of_heap - top_of_last_block;
 	}
 
 	// if we are allocating memory for the first time or
 	// ran out of the memory, then extend the heap with sbrk
-	if (prev_block == NULL || (prev_block != NULL && unused_space < (size+META_DATA_SIZE)))
+	if (prev_block == NULL || 
+		(prev_block != NULL && unused_space < (size+META_DATA_SIZE)))
 	{
 		Block* prev_top_of_heap;
 
@@ -335,7 +340,8 @@ Block* add_block(Block* prev_block, size_t size)
 		prev_top_of_heap = (Block*) sbrk((size+META_DATA_SIZE)*5);
 
 		if (unused_space != 0)
-			bottom_of_block = (char*) prev_block + (prev_block->size + META_DATA_SIZE);
+			bottom_of_block = (char*) prev_block + 
+				(prev_block->size + META_DATA_SIZE);
 		else
 			bottom_of_block = prev_top_of_heap;
 
