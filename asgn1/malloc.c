@@ -84,7 +84,8 @@ void *realloc(void *ptr, size_t size)
 			// try to combine the previous and next blocks with the current block
 			else if (block->prev != NULL && block->next != NULL &&
 				(block->prev)->in_use == 0 && (block->next)->in_use == 0 &&
-				aligned_size <= ((block->prev)->size + (block->next)->size + 2*META_DATA_SIZE + block->size))
+				aligned_size <= ((block->prev)->size + 
+					(block->next)->size + 2*META_DATA_SIZE + block->size))
 			{
 				puts("combining with prev and next blocks\n");
 				new_block = combine_blocks(block->prev);
