@@ -7,6 +7,7 @@
 #define align16(x) (((((x)-1) >> 4) << 4)+16)
 
 void *start = NULL;
+void *last = NULL;
 void *top_of_heap = NULL;
 
 /*
@@ -57,10 +58,41 @@ void *realloc(void *ptr, size_t size)
 			
          // check if we can split it the block
          if ((block->size - aligned_size) >= min_size_block)
+         {
+            //puts("split it\n");
             split_block(block, aligned_size);	
+         }
+         //printf("realloc case 1, returning: %p\n", block->d);
          return block->d; 	
       }
-      // case 2: size requested is greater than size of block
+      else if (block->next == NULL)
+      {
+         //block->in_use = 0
+         //block = add_block(last, aligned_size);
+         //memcpy(block->d, );
+         block->size = aligned_size;
+
+         if (ptr+aligned_size > top_of_heap)
+         {
+            void *prev_top_of_heap;
+            int size_to_allocate = (16+META_DATA_SIZE)*64000;
+
+            if (aligned_size > size_to_allocate)
+               size_to_allocate = aligned_size + META_DATA_SIZE;
+
+            prev_top_of_heap = sbrk(size_to_allocate);
+            top_of_heap=prev_top_of_heap + size_to_allocate;
+
+            if (prev_top_of_heap == (void*) -1)
+            {
+               //printf("sbrk failed\n");
+               return NULL;
+            }
+         }
+
+         return block->d;
+      }
+      // case 3: size requested is greater than size of block
       else
       {
          Block *new_block = block;
@@ -71,7 +103,7 @@ void *realloc(void *ptr, size_t size)
             aligned_size <= ((block->prev)->size + 
             META_DATA_SIZE + block->size))
          {
-            puts("combining with previous block\n");
+            //puts("combining with previous block\n");
             new_block = combine_blocks(block->prev);
             memcpy(new_block->d, block->d, block->size);
          }
@@ -80,7 +112,7 @@ void *realloc(void *ptr, size_t size)
             aligned_size <= ((block->next)->size + 
             META_DATA_SIZE + block->size))
          {
-            puts("combining with next block\n");
+            //puts("combining with next block\n");
             combine_blocks(new_block);
          }
          else if (block->prev != NULL && block->next != NULL &&
@@ -89,7 +121,7 @@ void *realloc(void *ptr, size_t size)
             (block->next)->size + 2*META_DATA_SIZE + block->size))
          {
             // try to combine previous and next block with current block
-            puts("combining with prev and next blocks\n");
+            //puts("combining with prev and next blocks\n");
             new_block = combine_blocks(block->prev);
             memcpy(new_block->d, block->d, block->size);
             combine_blocks(new_block);
@@ -99,7 +131,7 @@ void *realloc(void *ptr, size_t size)
          {
             void *new_unit;
 
-            puts("adding another unit at the end\n");
+            //puts("could not combine blocks\n");
 
             /* allocate memory */
             new_unit = malloc(aligned_size);
@@ -117,8 +149,9 @@ void *realloc(void *ptr, size_t size)
          return new_block->d;
       }
    }
-   else
-      puts("pointer is invalid\n");
+   //else
+      //puts("pointer is invalid\n");
+   return NULL;
 }
 
 /*
@@ -150,7 +183,7 @@ void *calloc(size_t count, size_t size)
    }
 	
    /* assign each byte to 0 and return the start of allocated memory */
-   return memset(ptr, 15, align16(size*count));
+   return memset(ptr, 0, align16(size*count));
 }
 
 /*
@@ -162,8 +195,6 @@ void *malloc(size_t size)
    Block *b;
    size_t aligned_size = align16(size);
 
-   puts("in malloc\n");
-	
    if (size == 0)
 	   return NULL;
 	
@@ -189,13 +220,14 @@ void *malloc(size_t size)
       /* no unused block found of the right size, extend memory */
       if (b == NULL)
       {
-         puts("malloc: adding a unit at the end\n");
-         printf("prev_block: %p\n", prev_block);
+         //puts("malloc: adding a unit at the end\n");
+         //printf("prev_block: %p\n", prev_block);
          b = add_block(prev_block, aligned_size);
-         printf("base of new block: %p\n", b);
+         //printf("base of new block: %p\n", b);
 
          if (b == NULL)
          {
+            exit(EXIT_FAILURE);
             errno = ENOMEM;
             return NULL;
          }
@@ -203,10 +235,14 @@ void *malloc(size_t size)
       else
       {
          int size_of_smallest_block = META_DATA_SIZE + 16;
+         //puts("malloc found unused block\n");
 
          // check if we can split the block
          if (b->size >= (size_of_smallest_block + aligned_size))
+         {
+            //printf("malloc is splitting block: %p\n",b->d);
             split_block(b, aligned_size);
+         }
          b->in_use = 1;
       }
    }
@@ -216,14 +252,17 @@ void *malloc(size_t size)
 
 void split_block(Block* block, size_t size)
 {
-   Block *second_block = (char*) block + (block->size + META_DATA_SIZE);
+   Block *second_block = (char*) block + (size+META_DATA_SIZE);
    int size_of_smallest_block = META_DATA_SIZE + 16;
 
    /* second block meta data */	
-   second_block->size = block->size - size_of_smallest_block;
+   second_block->size = block->size - (size+META_DATA_SIZE);
    second_block->in_use = 0;
    second_block->next = block->next;
    second_block->prev = block;
+
+   if (block->next)
+      (block->next)->prev = second_block;
 
    /* first block meta data */
    block->size = size; 
@@ -260,6 +299,7 @@ void free(void *ptr)
    }
    else
    {
+      return;
       fprintf(stderr, "%p: pointer being freed was not allocated by malloc\n", 
          ptr);
       exit(EXIT_FAILURE);
@@ -291,6 +331,8 @@ int valid_ptr(void *ptr)
 
    while (cursor != NULL)
    {
+      //printf("block %d\n", i);
+
       if (cursor == ptr)
       {
          isValid = 1;
@@ -298,6 +340,15 @@ int valid_ptr(void *ptr)
       }			
 
       cursor = cursor->next;
+      /* 
+      if (cursor != cursor->next)
+         i++;
+      else
+      {
+         //printf("top of heap: %p\n", top_of_heap);
+         exit(EXIT_FAILURE);
+      }
+      */
    }
 	
    return isValid;
@@ -318,7 +369,7 @@ Block* find_unused_block(Block **prev, size_t size)
 Block* add_block(Block* prev_block, size_t size)
 {
    Block *bottom_of_block = NULL;
-   int unused_space;
+   int unused_space = 0;
    void *top_of_last_block; 
 
    // calculate the unused space if the heap has already been created
@@ -334,33 +385,50 @@ Block* add_block(Block* prev_block, size_t size)
    if (prev_block == NULL || 
       (prev_block != NULL && unused_space < (size+META_DATA_SIZE)))
    {
-      Block* prev_top_of_heap;
+      void* prev_top_of_heap;
+      int size_to_allocate = (16 + META_DATA_SIZE)*64000;
 
       /* get the bottom of the block allocated */
-      prev_top_of_heap = (Block*) sbrk((size+META_DATA_SIZE)*5);
+
+      //puts("need more heap\n");
+      
+      if (size > size_to_allocate)
+         size_to_allocate = size + META_DATA_SIZE;
+
+      prev_top_of_heap = sbrk(size_to_allocate);
+      //puts("extending heap\n");
 
       if (unused_space != 0)
          bottom_of_block = (char*) prev_block + 
          (prev_block->size + META_DATA_SIZE);
       else
-         bottom_of_block = prev_top_of_heap;
+         bottom_of_block = (Block*) prev_top_of_heap;
 
       /* calculate the new top of the heap */
-      top_of_heap = bottom_of_block + ((size+META_DATA_SIZE)*5)/sizeof(Block);
+      top_of_heap = prev_top_of_heap + size_to_allocate;
 
       /* check if memory allocation failed */
       if (prev_top_of_heap == (void*) -1)
+      {
+         //printf("sbrk failed\n");
          return NULL;
+      }
    }
    else
    {
-      puts("add_block: in else\n");
+      //puts("don't need more heap\n");
       bottom_of_block = (char*)prev_block + (META_DATA_SIZE + prev_block->size);
+      //printf("new block data starts at: %p\n", bottom_of_block->d);
    }
+
+   last = bottom_of_block;
 
    /* link the prev block to the new block */
    if (prev_block)
+   {
       prev_block->next = bottom_of_block;
+      //printf("next of previous block: %p\n", bottom_of_block->d);
+   }
 
    /* store the metadata of the current block */
    bottom_of_block->size = size;
