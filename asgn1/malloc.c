@@ -227,7 +227,6 @@ void *malloc(size_t size)
 
          if (b == NULL)
          {
-            exit(EXIT_FAILURE);
             errno = ENOMEM;
             return NULL;
          }
