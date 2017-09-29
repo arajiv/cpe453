@@ -43,36 +43,29 @@ void *realloc(void *ptr, size_t size)
    if (ptr == NULL)
       return malloc(size);	
 	
-	//puts("in realloc\n");
-
    /* check that the ptr is valid */
    if (valid_ptr(ptr-META_DATA_SIZE))
    {
       size_t aligned_size = align16(size);
       block = (Block*) (ptr-META_DATA_SIZE);
 		
-      // case 1: size requested is less than or equal to size of block
+      /* case 1: size requested is less than or equal to size of block */
       if (aligned_size <= block->size)
       {
          int min_size_block = META_DATA_SIZE + 16;
 			
          // check if we can split it the block
          if ((block->size - aligned_size) >= min_size_block)
-         {
-            //puts("split it\n");
             split_block(block, aligned_size);	
-         }
-         //printf("realloc case 1, returning: %p\n", block->d);
          return block->d; 	
       }
+      /* case 2: realloc at the end of the linked list */
       else if (block->next == NULL)
       {
-         //block->in_use = 0
-         //block = add_block(last, aligned_size);
-         //memcpy(block->d, );
          block->size = aligned_size;
 
-         if (ptr+aligned_size > top_of_heap)
+         /* check if we need to extend the heap */
+         if (ptr + aligned_size > top_of_heap)
          {
             void *prev_top_of_heap;
             int size_to_allocate = (16+META_DATA_SIZE)*64000;
@@ -85,43 +78,39 @@ void *realloc(void *ptr, size_t size)
 
             if (prev_top_of_heap == (void*) -1)
             {
-               //printf("sbrk failed\n");
+               errno = ENOMEM;
                return NULL;
             }
          }
 
          return block->d;
       }
-      // case 3: size requested is greater than size of block
+      /* case 3: size requested is greater than size of block */
       else
       {
          Block *new_block = block;
 
-         /* expansion in place: try to combine neighboring blocks */
-         // try to combine previous block with current block
+         /* try to combine previous block with current block */
          if (block->prev != NULL && (block->prev)->in_use == 0 &&
             aligned_size <= ((block->prev)->size + 
             META_DATA_SIZE + block->size))
          {
-            //puts("combining with previous block\n");
             new_block = combine_blocks(block->prev);
             memcpy(new_block->d, block->d, block->size);
          }
-         // try to combine next block with current block
+         /* try to combine next block with current block */
          else if (block->next != NULL && (block->next)->in_use == 0 &&
             aligned_size <= ((block->next)->size + 
             META_DATA_SIZE + block->size))
          {
-            //puts("combining with next block\n");
             combine_blocks(new_block);
          }
+         /* try to combine previous and next block with current block */
          else if (block->prev != NULL && block->next != NULL &&
             (block->prev)->in_use == 0 && (block->next)->in_use == 0 &&
             aligned_size <= ((block->prev)->size + 
             (block->next)->size + 2*META_DATA_SIZE + block->size))
          {
-            // try to combine previous and next block with current block
-            //puts("combining with prev and next blocks\n");
             new_block = combine_blocks(block->prev);
             memcpy(new_block->d, block->d, block->size);
             combine_blocks(new_block);
@@ -131,10 +120,14 @@ void *realloc(void *ptr, size_t size)
          {
             void *new_unit;
 
-            //puts("could not combine blocks\n");
-
             /* allocate memory */
             new_unit = malloc(aligned_size);
+
+            if (new_unit == NULL)
+            {
+               errno = ENOMEM;
+               return NULL;
+            }
 
             /* copy data to new allocation */
             memcpy(new_unit, ptr, block->size);
@@ -149,8 +142,7 @@ void *realloc(void *ptr, size_t size)
          return new_block->d;
       }
    }
-   //else
-      //puts("pointer is invalid\n");
+
    return NULL;
 }
 
@@ -166,10 +158,7 @@ void *calloc(size_t count, size_t size)
 {
    void *ptr;
 
-   /* 
-    * if every object is 0 bytes then return NULL 
-    * check what library function returns
-    */	
+   /* if size is 0, return NULL */	
    if (size == 0)
       return NULL;
 
@@ -220,10 +209,7 @@ void *malloc(size_t size)
       /* no unused block found of the right size, extend memory */
       if (b == NULL)
       {
-         //puts("malloc: adding a unit at the end\n");
-         //printf("prev_block: %p\n", prev_block);
          b = add_block(prev_block, aligned_size);
-         //printf("base of new block: %p\n", b);
 
          if (b == NULL)
          {
@@ -234,14 +220,10 @@ void *malloc(size_t size)
       else
       {
          int size_of_smallest_block = META_DATA_SIZE + 16;
-         //puts("malloc found unused block\n");
 
-         // check if we can split the block
+         /* check if we can split the block */
          if (b->size >= (size_of_smallest_block + aligned_size))
-         {
-            //printf("malloc is splitting block: %p\n",b->d);
             split_block(b, aligned_size);
-         }
          b->in_use = 1;
       }
    }
@@ -249,6 +231,7 @@ void *malloc(size_t size)
    return b->d;
 }
 
+/* splits a block into two blocks */
 void split_block(Block* block, size_t size)
 {
    void *start_of_first = (void*) block;
@@ -280,7 +263,7 @@ void free(void *ptr)
 
    ptr -= META_DATA_SIZE; 			/* move ptr to base of block */
 
-   // check that pointer passed by user is valid
+   /* check that pointer passed by user is valid */
    if (valid_ptr(ptr))
    {
       Block *b = (Block*) ptr;	/* convert to Block ptr */
@@ -296,22 +279,16 @@ void free(void *ptr)
       if (b->next != NULL && (b->next)->in_use == 0)
          combine_blocks(b);
    }
-   else
-   {
-      return;
-      fprintf(stderr, "%p: pointer being freed was not allocated by malloc\n", 
-         ptr);
-      exit(EXIT_FAILURE);
-   }
+   
+   return;
 }
 
-/* only works for the previous block */
+/* combines two blocks into one */
 Block* combine_blocks(Block* block)
 {
    /* change previous block meta data */
    block->size = META_DATA_SIZE + (block->next)->size + block->size;
    block->next = (block->next)->next;
-   //printf("block1->next: %p\n", block->next);
 
    /* change freed block meta data */	
    if ((block->next) != NULL)
@@ -323,6 +300,10 @@ Block* combine_blocks(Block* block)
    return block;
 }
 
+/* 
+ * checks if the ptr is valid by looking at the starting address 
+ * of every block and if there is a match, then it is valid
+ */
 int valid_ptr(void *ptr)
 {
    Block *cursor = start;	
@@ -339,20 +320,12 @@ int valid_ptr(void *ptr)
       }			
 
       cursor = cursor->next;
-      /* 
-      if (cursor != cursor->next)
-         i++;
-      else
-      {
-         //printf("top of heap: %p\n", top_of_heap);
-         exit(EXIT_FAILURE);
-      }
-      */
    }
 	
    return isValid;
 }
 
+/* tries to find an unused block whose size is bigger than the requested size */
 Block* find_unused_block(Block **prev, size_t size)
 {
    Block* cursor;
@@ -365,13 +338,14 @@ Block* find_unused_block(Block **prev, size_t size)
    return cursor;
 }
 
+/* adds a block to the linked list */
 Block* add_block(Block* prev_block, size_t size)
 {
    Block *bottom_of_block = NULL;
    int unused_space = 0;
    void *top_of_last_block; 
 
-   // calculate the unused space if the heap has already been created
+   /* calculate the unused space if the heap has already been created */
    if (prev_block)
    {
       top_of_last_block = prev_block + 
@@ -379,24 +353,26 @@ Block* add_block(Block* prev_block, size_t size)
       unused_space = top_of_heap - top_of_last_block;
    }
 
-   // if we are allocating memory for the first time or
-   // ran out of the memory, then extend the heap with sbrk
+   /* 
+    * if we are allocating memory for the first time or
+    * ran out of the memory, then extend the heap with sbrk
+    */
    if (prev_block == NULL || 
       (prev_block != NULL && unused_space < (size+META_DATA_SIZE)))
    {
       void* prev_top_of_heap;
       int size_to_allocate = (16 + META_DATA_SIZE)*64000;
 
-      /* get the bottom of the block allocated */
-
-      //puts("need more heap\n");
-      
+      /* check is the user requested more than the default allocation */
       if (size > size_to_allocate)
          size_to_allocate = size + META_DATA_SIZE;
 
       prev_top_of_heap = sbrk(size_to_allocate);
-      //puts("extending heap\n");
 
+      /* 
+       * if there is space that we are not using then the bottom of the new 
+       * block starts after the last block on linked list
+       */
       if (unused_space != 0)
       {
          void *start_of_prev = (void*) prev_block;
@@ -418,20 +394,22 @@ Block* add_block(Block* prev_block, size_t size)
    }
    else
    {
+      /* 
+       * heap does not need to be extend so calculate where the knew block
+       * should be based on where the last block starts and its size
+       */
       void *start_of_prev = (void*) prev_block;
       bottom_of_block = start_of_prev + (META_DATA_SIZE + prev_block->size);
    }
-
+   
+   /* maintain pointer to last block for realloc to use */
    last = bottom_of_block;
 
-   /* link the prev block to the new block */
+   /* link the prev block to the new block, if there is one */
    if (prev_block)
-   {
       prev_block->next = bottom_of_block;
-      //printf("next of previous block: %p\n", bottom_of_block->d);
-   }
 
-   /* store the metadata of the current block */
+   /* initialize the metadata of the current block */
    bottom_of_block->size = size;
    bottom_of_block->next = NULL;
    bottom_of_block->prev = prev_block;

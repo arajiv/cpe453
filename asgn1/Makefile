@@ -1,6 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -g -fpic
 
+malloc: intel-all
+
 intel-all: lib/libmalloc.so lib64/libmalloc.so
 
 lib/libmalloc.so: lib malloc32.o
