@@ -252,8 +252,8 @@ void *malloc(size_t size)
 
 void split_block(Block* block, size_t size)
 {
-   Block *second_block = (char*) block + (size+META_DATA_SIZE);
-   int size_of_smallest_block = META_DATA_SIZE + 16;
+   void *start_of_first = (void*) block;
+   Block *second_block = start_of_first + (size+META_DATA_SIZE);
 
    /* second block meta data */	
    second_block->size = block->size - (size+META_DATA_SIZE);
@@ -399,8 +399,11 @@ Block* add_block(Block* prev_block, size_t size)
       //puts("extending heap\n");
 
       if (unused_space != 0)
-         bottom_of_block = (char*) prev_block + 
+      {
+         void *start_of_prev = (void*) prev_block;
+         bottom_of_block = start_of_prev + 
          (prev_block->size + META_DATA_SIZE);
+      }
       else
          bottom_of_block = (Block*) prev_top_of_heap;
 
@@ -416,9 +419,8 @@ Block* add_block(Block* prev_block, size_t size)
    }
    else
    {
-      //puts("don't need more heap\n");
-      bottom_of_block = (char*)prev_block + (META_DATA_SIZE + prev_block->size);
-      //printf("new block data starts at: %p\n", bottom_of_block->d);
+      void *start_of_prev = (void*) prev_block;
+      bottom_of_block = start_of_prev + (META_DATA_SIZE + prev_block->size);
    }
 
    last = bottom_of_block;
