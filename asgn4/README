@@ -1,0 +1,7 @@
+Fernando Diaz (fdiazpai)
+Heriberto Rodriguez (hrodri02)
+making executables: make
+                    make install
+removing object files: make clean
+starting driver: make up
+stopping driver make down

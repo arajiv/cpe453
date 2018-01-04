@@ -8,18 +8,19 @@
 #include <time.h>
 
 #ifndef NUM_PHILOSOPHERS
-#define NUM_PHILOSOPHERS 12
+#define NUM_PHILOSOPHERS 5
 #endif
 
 #define LEFT_NEIGHBOR(i)	(i+NUM_PHILOSOPHERS-1)%NUM_PHILOSOPHERS
 #define RIGHT_NEIGHBOR(i)	(i+1)%NUM_PHILOSOPHERS
 
 int num_cycles = 1;
-enum state {IDLE, GRABBED_FIRST_FORK, GRABBED_SECOND_FORK, EATING, FINISHED, THINKING};
+enum state {IDLE, GRABBED_FIRST_FORK, GRABBED_SECOND_FORK, EATING, FINISHED, 
+   THINKING};
 
 sem_t mutex;
+sem_t mutex_print;
 sem_t s[NUM_PHILOSOPHERS];
-sem_t sections[NUM_PHILOSOPHERS];
 int forks[NUM_PHILOSOPHERS];
 int num_forks[NUM_PHILOSOPHERS];
 int cycles[NUM_PHILOSOPHERS];
@@ -75,8 +76,11 @@ void *philosopher_cycle(void *i)
 
 void print_state_change(int id, int state, int fork_grabbed)
 {
-	
-	sem_wait(&sections[0]);
+	if (sem_wait(&mutex_print) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 
 	int i;
 	int right_fork = id;
@@ -93,24 +97,24 @@ void print_state_change(int id, int state, int fork_grabbed)
 	{
 		if (i != id && strlen(sec[i]) == 0)
 		{
-			sprintf(sec[i],"|%s      ", dashes);
+			sprintf(sec[i],"| %s       ", dashes);
 			if (i == (NUM_PHILOSOPHERS -1))
 				strcat(sec[i], "|\n");
 		}
 	}
 
 	if (state == IDLE)
-		sprintf(sec[id],"|%s      ", dashes);
+		sprintf(sec[id],"| %s       ", dashes);
 	else if (state == THINKING)
 	{
-		strcat(dashes, " Think");
-		sprintf(sec[id],"|%s", dashes);
+		strcat(dashes, " Think ");
+		sprintf(sec[id],"| %s", dashes);
 	}
 	else if (state == EATING)
 	{
 		char temp[63];
 		char middle[NUM_PHILOSOPHERS] = "";
-		sprintf(sec[id],"|");
+		sprintf(sec[id],"| ");
 		for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		{
 			if (i == left_fork || i == right_fork)
@@ -120,7 +124,7 @@ void print_state_change(int id, int state, int fork_grabbed)
 			strcat(middle, temp);
 		}
 		strcat(middle, " Eat");
-		sprintf(temp, "%s  ", middle);
+		sprintf(temp, "%s   ", middle);
 		strcat(sec[id], temp);
 	}
 	else if (state == GRABBED_FIRST_FORK)
@@ -128,11 +132,12 @@ void print_state_change(int id, int state, int fork_grabbed)
 		char temp[63];
 		char middle[NUM_PHILOSOPHERS] = "";
 
-		sprintf(sec[id],"|");
-		if (forks[right_fork] == 1)
-			fork_grabbed = right_fork;
-		else if (forks[left_fork] == 1)
-			fork_grabbed = left_fork;
+		sprintf(sec[id],"| ");
+
+      if ((id%2) == 0)
+         fork_grabbed = right_fork;
+      else
+         fork_grabbed = left_fork;
 
 		for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		{
@@ -143,14 +148,14 @@ void print_state_change(int id, int state, int fork_grabbed)
 			strcat(middle, temp);
 		}
 
-		sprintf(temp, "%s      ", middle);
+		sprintf(temp, "%s       ", middle);
 		strcat(sec[id], temp);
 	}
 	else if (state == GRABBED_SECOND_FORK || state == FINISHED)
 	{
 		char temp[63];
 		char middle[NUM_PHILOSOPHERS] = "";
-		sprintf(sec[id],"|");
+		sprintf(sec[id],"| ");
 		for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		{
 			if (i == left_fork || i == right_fork)
@@ -160,7 +165,7 @@ void print_state_change(int id, int state, int fork_grabbed)
 			strcat(middle, temp);
 		}
 
-		sprintf(temp, "%s      ", middle);
+		sprintf(temp, "%s       ", middle);
 		strcat(sec[id], temp);
 	}
 
@@ -170,7 +175,11 @@ void print_state_change(int id, int state, int fork_grabbed)
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		printf("%s", sec[i]);
 	
-	sem_post(&sections[0]);
+	if (sem_post(&mutex_print) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 }
 
 void think(int id)
@@ -200,10 +209,24 @@ void nap_time()
 int take_fork(int i, int num)
 {
 	int fork_grabbed;
-	sem_wait(&mutex);
+	if (sem_wait(&mutex) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 	fork_grabbed = test(i, num);	
-	sem_post(&mutex);
-	sem_wait(&s[i]);		/* blocks if no forks are not acquired */
+	if (sem_post(&mutex) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
+
+   /* blocks if no forks are not acquired */
+   if (sem_wait(&s[i]) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 	return fork_grabbed;
 }
 
@@ -218,7 +241,12 @@ void put_fork_down(int i)
 	if (i < (NUM_PHILOSOPHERS-1))
 		left_fork = i+1;
 
-	sem_wait(&mutex);
+	if (sem_wait(&mutex) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
+   
 	forks[left_fork] = 0;
 	num_forks[i]--;
 	current_state = GRABBED_FIRST_FORK;
@@ -232,16 +260,23 @@ void put_fork_down(int i)
 	
 	if (cycles[ln] < num_cycles && philosopher_state[ln] < EATING)
 	{
-		//printf("id: %d, left_neighbor: %d, cycles_ln: %d\n", i, LEFT_NEIGHBOR(i), cycles[LEFT_NEIGHBOR(i)]);
+		//printf("id: %d, left_neighbor: %d, cycles_ln: %d\n", i, 
+      //LEFT_NEIGHBOR(i), cycles[LEFT_NEIGHBOR(i)]);
 		test(LEFT_NEIGHBOR(i), num_forks[LEFT_NEIGHBOR(i)]);
 	}
 
 	if (cycles[rn] < num_cycles && philosopher_state[rn] < EATING)
 	{
-		//printf("id: %d, right_neighbor: %d, cycles_rn: %d\n", i, RIGHT_NEIGHBOR(i), cycles[RIGHT_NEIGHBOR(i)]);
+		//printf("id: %d, right_neighbor: %d, cycles_rn: %d\n", i, 
+      //RIGHT_NEIGHBOR(i), cycles[RIGHT_NEIGHBOR(i)]);
 		test(RIGHT_NEIGHBOR(i), num_forks[RIGHT_NEIGHBOR(i)]);
 	}
-	sem_post(&mutex);
+
+	if (sem_post(&mutex) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 }
 
 int test(int i, int num)
@@ -259,21 +294,30 @@ int test(int i, int num)
 			// try to grab the right fork
 			if (forks[right_fork] == 0)
 			{	
-				//printf("philosopher %d is grabbing fork %d\n", i, right_fork);
+            //printf("philosopher %d is grabbing right fork %d\n", 
+            //i, right_fork);
 				forks[right_fork] = 1;
-				sem_post(&s[i]);
+				if (sem_post(&s[i]) == -1)
+            {
+               fprintf(stderr, "%s\n", strerror(errno));
+               exit(EXIT_FAILURE);
+            }
 				return right_fork;
 			}
 		}
 		// odd philosophers will attempt to grab the left fork first
 		else
 		{
-			//printf("philosopher %d is checking fork %d\n", i, left_fork);
+         //printf("philosopher %d is checking fork %d\n", i, left_fork);
 			if (forks[left_fork] == 0)
 			{
-				//printf("philosopher %d is grabbing fork %d\n", i, left_fork);
+            //printf("philosopher %d is grabbing left fork %d\n", i, left_fork);
 				forks[left_fork] = 1;
-				sem_post(&s[i]);
+				if (sem_post(&s[i]) == -1)
+            {
+               fprintf(stderr, "%s\n", strerror(errno));
+               exit(EXIT_FAILURE);
+            }
 				return left_fork;
 			}
 		}
@@ -286,9 +330,13 @@ int test(int i, int num)
 			// try to grab the left fork
 			if (forks[left_fork] == 0)
 			{
-				//printf("philosopher %d is grabbing fork %d\n", i, left_fork);
+            //printf("philosopher %d is grabbing left fork %d\n", i, left_fork);
 				forks[left_fork] = 1;
-				sem_post(&s[i]);
+				if (sem_post(&s[i]) == -1)
+            {
+               fprintf(stderr, "%s\n", strerror(errno));
+               exit(EXIT_FAILURE);
+            }
 				return left_fork;
 			}
 		}
@@ -297,9 +345,14 @@ int test(int i, int num)
 			// try to grab the right fork
 			if (forks[right_fork] == 0)
 			{
-				//printf("philosopher %d is grabbing fork %d\n", i, right_fork);
+            //printf("philosopher %d is grabbing right fork %d\n", 
+            // i, right_fork);
 				forks[right_fork] = 1;
-				sem_post(&s[i]);
+				if (sem_post(&s[i]) == -1)
+            {
+               fprintf(stderr, "%s\n", strerror(errno));
+               exit(EXIT_FAILURE);
+            }
 				return right_fork;
 			}
 		}
@@ -312,16 +365,18 @@ void print_header(int n)
 {
 	int i, middle;
 	char temp[63] = "";
-	for (i = 0; i < n+6; i++)
+
+	for (i = 0; i < n+8; i++)
 		strcat(temp, "=");
+
 	for (i = 0; i < n-1; i++)
 		printf("|%s", temp);
 	printf("|%s|\n", temp);
 		
 	printf("|");
-	middle = (n+6)/2;
+	middle = (n+8)/2;
 	char temp2[63] = "";
-	for (i = 0; i < n+6; i++)
+	for (i = 0; i < n+8; i++)
 	{
 		strcat(temp2, " ");
 	}
@@ -336,7 +391,7 @@ void print_header(int n)
 	}
 
 	char temp3[63] = "";
-	for (i = 0; i < n+6; i++)
+	for (i = 0; i < n+8; i++)
 		strcat(temp3, "=");
 	for (i = 0; i < n-1; i++)
 		printf("|%s", temp3);
@@ -345,11 +400,11 @@ void print_header(int n)
 	int j;
 	for (j = 0; j < n; j++)
 	{
-		printf("|");
+		printf("| ");
 		for (i = 0; i < n; i++)
 			printf("%c", '-');           
 
-		for (;i < n+6; i++)
+		for (;i < n+7; i++)
 			printf(" ");
 	}
 	printf("|\n");
@@ -359,17 +414,30 @@ void check_args(int argc, char *argv[])
 {
 	if (argc > 2)
 	{
-		printf("usage: ./dine -ncX, where X is some positive integer\n");
+      printf("usage: ./dine [times around]\n");
 		exit(-1);
 	}
 	else if (argc == 2)
 	{
-		if (sscanf(argv[1], "-nc%d", &num_cycles) != 1)
+		if (sscanf(argv[1], "%d", &num_cycles) != 1)
 		{
-			printf("usage: ./dine -ncX, where X is some positive integer\n");
+         printf("%s: must be a nonnegative integer\n", argv[1]);
 			exit(-1);
 		}
 	}
+}
+
+void print_last_part(int n)
+{
+   int i;
+	char temp[63] = "";
+
+	for (i = 0; i < n+8; i++)
+		strcat(temp, "=");
+
+	for (i = 0; i < n-1; i++)
+		printf("|%s", temp);
+	printf("|%s|\n", temp);
 }
 
 int main(int argc, char *argv[])
@@ -381,7 +449,11 @@ int main(int argc, char *argv[])
 	srandom(time(NULL));
 	check_args(argc, argv);
 
-	sem_init(&mutex, 0, 1);
+	if (sem_init(&mutex, 0, 1) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
@@ -390,16 +462,23 @@ int main(int argc, char *argv[])
 		cycles[i] = 0;
 	}
 
-	sem_post(&sections[0]);
+	if (sem_post(&mutex_print) == -1)
+   {
+      fprintf(stderr, "%s\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   }
+
 	print_header(NUM_PHILOSOPHERS);
+
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 	{
 		int res;
-		res = pthread_create(&childid[i], NULL, philosopher_cycle, (void*) (&id[i]));
+      res = pthread_create(&childid[i], NULL, philosopher_cycle, 
+         (void*) (&id[i]));
 
 		if (res != 0)
 		{
-			fprintf(stderr, "Child %i:	%s\n",i,strerror(errno));
+         fprintf(stderr, "Child %i:	%s\n",i,strerror(errno));
 			exit(-1);
 		}
 	}
@@ -409,12 +488,11 @@ int main(int argc, char *argv[])
 		pthread_join(childid[i], NULL);
 	}
 
-	sem_destroy(&mutex);
+	sem_destroy(&mutex_print);
 	for (i = 0; i < NUM_PHILOSOPHERS; i++)
 		sem_destroy(&s[i]);
 	
-	for (i = 0; i < NUM_PHILOSOPHERS; i++)
-		sem_destroy(&sections[i]);
+   print_last_part(NUM_PHILOSOPHERS);
 
 	return 0;
 }

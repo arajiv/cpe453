@@ -1,0 +1,4094 @@
+Allocating 8192 regions, size 1..8192...
+before malloc
+before malloc
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[1] = 0x2466080
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[2] = 0x24660b0
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[3] = 0x24660e0
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[4] = 0x2466110
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[5] = 0x2466140
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[6] = 0x2466170
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[7] = 0x24661a0
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[8] = 0x24661d0
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[9] = 0x2466200
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[10] = 0x2466230
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[11] = 0x2466260
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[12] = 0x2466290
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[13] = 0x24662c0
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[14] = 0x24662f0
+before realloc
+realloc case 1, returning: 0x2466050
+before malloc
+block[15] = 0x2466320
+before realloc
+old val: 0x2466050, new val: 0x2466350, size: 17
+before malloc
+malloc found unused block
+
+block[16] = 0x2466050
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[17] = 0x2466390
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[18] = 0x24663c0
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[19] = 0x24663f0
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[20] = 0x2466420
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[21] = 0x2466450
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[22] = 0x2466480
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[23] = 0x24664b0
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[24] = 0x24664e0
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[25] = 0x2466510
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[26] = 0x2466540
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[27] = 0x2466570
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[28] = 0x24665a0
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[29] = 0x24665d0
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[30] = 0x2466600
+before realloc
+realloc case 1, returning: 0x2466350
+before malloc
+block[31] = 0x2466630
+before realloc
+old val: 0x2466350, new val: 0x2466660, size: 33
+before malloc
+malloc found unused block
+
+block[32] = 0x2466350
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[33] = 0x24666b0
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[34] = 0x24666e0
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[35] = 0x2466710
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[36] = 0x2466740
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[37] = 0x2466770
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[38] = 0x24667a0
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[39] = 0x24667d0
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[40] = 0x2466800
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[41] = 0x2466830
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[42] = 0x2466860
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[43] = 0x2466890
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[44] = 0x24668c0
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[45] = 0x24668f0
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[46] = 0x2466920
+before realloc
+realloc case 1, returning: 0x2466660
+before malloc
+block[47] = 0x2466950
+before realloc
+old val: 0x2466660, new val: 0x2466980, size: 49
+before malloc
+malloc found unused block
+
+block[48] = 0x2466660
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[49] = 0x24669e0
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[50] = 0x2466a10
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[51] = 0x2466a40
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[52] = 0x2466a70
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[53] = 0x2466aa0
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[54] = 0x2466ad0
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[55] = 0x2466b00
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[56] = 0x2466b30
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[57] = 0x2466b60
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[58] = 0x2466b90
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[59] = 0x2466bc0
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[60] = 0x2466bf0
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[61] = 0x2466c20
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[62] = 0x2466c50
+before realloc
+realloc case 1, returning: 0x2466980
+before malloc
+block[63] = 0x2466c80
+before realloc
+old val: 0x2466980, new val: 0x2466cb0, size: 65
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2466980
+block[64] = 0x2466980
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+malloc found unused block
+
+block[65] = 0x24669b0
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[66] = 0x2466d20
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[67] = 0x2466d50
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[68] = 0x2466d80
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[69] = 0x2466db0
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[70] = 0x2466de0
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[71] = 0x2466e10
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[72] = 0x2466e40
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[73] = 0x2466e70
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[74] = 0x2466ea0
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[75] = 0x2466ed0
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[76] = 0x2466f00
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[77] = 0x2466f30
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[78] = 0x2466f60
+before realloc
+realloc case 1, returning: 0x2466cb0
+before malloc
+block[79] = 0x2466f90
+before realloc
+old val: 0x2466cb0, new val: 0x2466fc0, size: 81
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2466cb0
+block[80] = 0x2466cb0
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+malloc found unused block
+
+block[81] = 0x2466ce0
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[82] = 0x2467040
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[83] = 0x2467070
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[84] = 0x24670a0
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[85] = 0x24670d0
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[86] = 0x2467100
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[87] = 0x2467130
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[88] = 0x2467160
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[89] = 0x2467190
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[90] = 0x24671c0
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[91] = 0x24671f0
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[92] = 0x2467220
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[93] = 0x2467250
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[94] = 0x2467280
+before realloc
+realloc case 1, returning: 0x2466fc0
+before malloc
+block[95] = 0x24672b0
+before realloc
+old val: 0x2466fc0, new val: 0x24672e0, size: 97
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2466fc0
+block[96] = 0x2466fc0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+malloc found unused block
+
+block[97] = 0x2466ff0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[98] = 0x2467370
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[99] = 0x24673a0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[100] = 0x24673d0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[101] = 0x2467400
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[102] = 0x2467430
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[103] = 0x2467460
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[104] = 0x2467490
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[105] = 0x24674c0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[106] = 0x24674f0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[107] = 0x2467520
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[108] = 0x2467550
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[109] = 0x2467580
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[110] = 0x24675b0
+before realloc
+realloc case 1, returning: 0x24672e0
+before malloc
+block[111] = 0x24675e0
+before realloc
+old val: 0x24672e0, new val: 0x2467610, size: 113
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24672e0
+block[112] = 0x24672e0
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467310
+block[113] = 0x2467310
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+malloc found unused block
+
+block[114] = 0x2467340
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[115] = 0x24676b0
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[116] = 0x24676e0
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[117] = 0x2467710
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[118] = 0x2467740
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[119] = 0x2467770
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[120] = 0x24677a0
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[121] = 0x24677d0
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[122] = 0x2467800
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[123] = 0x2467830
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[124] = 0x2467860
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[125] = 0x2467890
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[126] = 0x24678c0
+before realloc
+realloc case 1, returning: 0x2467610
+before malloc
+block[127] = 0x24678f0
+before realloc
+old val: 0x2467610, new val: 0x2467920, size: 129
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467610
+block[128] = 0x2467610
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467640
+block[129] = 0x2467640
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+malloc found unused block
+
+block[130] = 0x2467670
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[131] = 0x24679d0
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[132] = 0x2467a00
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[133] = 0x2467a30
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[134] = 0x2467a60
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[135] = 0x2467a90
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[136] = 0x2467ac0
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[137] = 0x2467af0
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[138] = 0x2467b20
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[139] = 0x2467b50
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[140] = 0x2467b80
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[141] = 0x2467bb0
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[142] = 0x2467be0
+before realloc
+realloc case 1, returning: 0x2467920
+before malloc
+block[143] = 0x2467c10
+before realloc
+old val: 0x2467920, new val: 0x2467c40, size: 145
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467920
+block[144] = 0x2467920
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467950
+block[145] = 0x2467950
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+malloc found unused block
+
+block[146] = 0x2467980
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[147] = 0x2467d00
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[148] = 0x2467d30
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[149] = 0x2467d60
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[150] = 0x2467d90
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[151] = 0x2467dc0
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[152] = 0x2467df0
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[153] = 0x2467e20
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[154] = 0x2467e50
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[155] = 0x2467e80
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[156] = 0x2467eb0
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[157] = 0x2467ee0
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[158] = 0x2467f10
+before realloc
+realloc case 1, returning: 0x2467c40
+before malloc
+block[159] = 0x2467f40
+before realloc
+old val: 0x2467c40, new val: 0x2467f70, size: 161
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467c40
+block[160] = 0x2467c40
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467c70
+block[161] = 0x2467c70
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467ca0
+block[162] = 0x2467ca0
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+malloc found unused block
+
+block[163] = 0x2467cd0
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[164] = 0x2468040
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[165] = 0x2468070
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[166] = 0x24680a0
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[167] = 0x24680d0
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[168] = 0x2468100
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[169] = 0x2468130
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[170] = 0x2468160
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[171] = 0x2468190
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[172] = 0x24681c0
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[173] = 0x24681f0
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[174] = 0x2468220
+before realloc
+realloc case 1, returning: 0x2467f70
+before malloc
+block[175] = 0x2468250
+before realloc
+old val: 0x2467f70, new val: 0x2468280, size: 177
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467f70
+block[176] = 0x2467f70
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467fa0
+block[177] = 0x2467fa0
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2467fd0
+block[178] = 0x2467fd0
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+malloc found unused block
+
+block[179] = 0x2468000
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[180] = 0x2468360
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[181] = 0x2468390
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[182] = 0x24683c0
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[183] = 0x24683f0
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[184] = 0x2468420
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[185] = 0x2468450
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[186] = 0x2468480
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[187] = 0x24684b0
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[188] = 0x24684e0
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[189] = 0x2468510
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[190] = 0x2468540
+before realloc
+realloc case 1, returning: 0x2468280
+before malloc
+block[191] = 0x2468570
+before realloc
+old val: 0x2468280, new val: 0x24685a0, size: 193
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468280
+block[192] = 0x2468280
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24682b0
+block[193] = 0x24682b0
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24682e0
+block[194] = 0x24682e0
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+malloc found unused block
+
+block[195] = 0x2468310
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[196] = 0x2468690
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[197] = 0x24686c0
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[198] = 0x24686f0
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[199] = 0x2468720
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[200] = 0x2468750
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[201] = 0x2468780
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[202] = 0x24687b0
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[203] = 0x24687e0
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[204] = 0x2468810
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[205] = 0x2468840
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[206] = 0x2468870
+before realloc
+realloc case 1, returning: 0x24685a0
+before malloc
+block[207] = 0x24688a0
+before realloc
+old val: 0x24685a0, new val: 0x24688d0, size: 209
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24685a0
+block[208] = 0x24685a0
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24685d0
+block[209] = 0x24685d0
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468600
+block[210] = 0x2468600
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468630
+block[211] = 0x2468630
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+malloc found unused block
+
+block[212] = 0x2468660
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[213] = 0x24689d0
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[214] = 0x2468a00
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[215] = 0x2468a30
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[216] = 0x2468a60
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[217] = 0x2468a90
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[218] = 0x2468ac0
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[219] = 0x2468af0
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[220] = 0x2468b20
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[221] = 0x2468b50
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[222] = 0x2468b80
+before realloc
+realloc case 1, returning: 0x24688d0
+before malloc
+block[223] = 0x2468bb0
+before realloc
+old val: 0x24688d0, new val: 0x2468be0, size: 225
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24688d0
+block[224] = 0x24688d0
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468900
+block[225] = 0x2468900
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468930
+block[226] = 0x2468930
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468960
+block[227] = 0x2468960
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+malloc found unused block
+
+block[228] = 0x2468990
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[229] = 0x2468cf0
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[230] = 0x2468d20
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[231] = 0x2468d50
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[232] = 0x2468d80
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[233] = 0x2468db0
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[234] = 0x2468de0
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[235] = 0x2468e10
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[236] = 0x2468e40
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[237] = 0x2468e70
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[238] = 0x2468ea0
+before realloc
+realloc case 1, returning: 0x2468be0
+before malloc
+block[239] = 0x2468ed0
+before realloc
+old val: 0x2468be0, new val: 0x2468f00, size: 241
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468be0
+block[240] = 0x2468be0
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468c10
+block[241] = 0x2468c10
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468c40
+block[242] = 0x2468c40
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468c70
+block[243] = 0x2468c70
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+malloc found unused block
+
+block[244] = 0x2468ca0
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[245] = 0x2469020
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[246] = 0x2469050
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[247] = 0x2469080
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[248] = 0x24690b0
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[249] = 0x24690e0
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[250] = 0x2469110
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[251] = 0x2469140
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[252] = 0x2469170
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[253] = 0x24691a0
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[254] = 0x24691d0
+before realloc
+realloc case 1, returning: 0x2468f00
+before malloc
+block[255] = 0x2469200
+before realloc
+old val: 0x2468f00, new val: 0x2469230, size: 257
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468f00
+block[256] = 0x2468f00
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468f30
+block[257] = 0x2468f30
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468f60
+block[258] = 0x2468f60
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468f90
+block[259] = 0x2468f90
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2468fc0
+block[260] = 0x2468fc0
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+malloc found unused block
+
+block[261] = 0x2468ff0
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[262] = 0x2469360
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[263] = 0x2469390
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[264] = 0x24693c0
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[265] = 0x24693f0
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[266] = 0x2469420
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[267] = 0x2469450
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[268] = 0x2469480
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[269] = 0x24694b0
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[270] = 0x24694e0
+before realloc
+realloc case 1, returning: 0x2469230
+before malloc
+block[271] = 0x2469510
+before realloc
+old val: 0x2469230, new val: 0x2469540, size: 273
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469230
+block[272] = 0x2469230
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469260
+block[273] = 0x2469260
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469290
+block[274] = 0x2469290
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24692c0
+block[275] = 0x24692c0
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24692f0
+block[276] = 0x24692f0
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+malloc found unused block
+
+block[277] = 0x2469320
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[278] = 0x2469680
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[279] = 0x24696b0
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[280] = 0x24696e0
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[281] = 0x2469710
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[282] = 0x2469740
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[283] = 0x2469770
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[284] = 0x24697a0
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[285] = 0x24697d0
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[286] = 0x2469800
+before realloc
+realloc case 1, returning: 0x2469540
+before malloc
+block[287] = 0x2469830
+before realloc
+old val: 0x2469540, new val: 0x2469860, size: 289
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469540
+block[288] = 0x2469540
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469570
+block[289] = 0x2469570
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24695a0
+block[290] = 0x24695a0
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24695d0
+block[291] = 0x24695d0
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469600
+block[292] = 0x2469600
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+malloc found unused block
+
+block[293] = 0x2469630
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[294] = 0x24699b0
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[295] = 0x24699e0
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[296] = 0x2469a10
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[297] = 0x2469a40
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[298] = 0x2469a70
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[299] = 0x2469aa0
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[300] = 0x2469ad0
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[301] = 0x2469b00
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[302] = 0x2469b30
+before realloc
+realloc case 1, returning: 0x2469860
+before malloc
+block[303] = 0x2469b60
+before realloc
+old val: 0x2469860, new val: 0x2469b90, size: 305
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469860
+block[304] = 0x2469860
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469890
+block[305] = 0x2469890
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24698c0
+block[306] = 0x24698c0
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x24698f0
+block[307] = 0x24698f0
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469920
+block[308] = 0x2469920
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469950
+block[309] = 0x2469950
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+malloc found unused block
+
+block[310] = 0x2469980
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[311] = 0x2469cf0
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[312] = 0x2469d20
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[313] = 0x2469d50
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[314] = 0x2469d80
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[315] = 0x2469db0
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[316] = 0x2469de0
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[317] = 0x2469e10
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[318] = 0x2469e40
+before realloc
+realloc case 1, returning: 0x2469b90
+before malloc
+block[319] = 0x2469e70
+before realloc
+old val: 0x2469b90, new val: 0x2469ea0, size: 321
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469b90
+block[320] = 0x2469b90
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469bc0
+block[321] = 0x2469bc0
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469bf0
+block[322] = 0x2469bf0
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469c20
+block[323] = 0x2469c20
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469c50
+block[324] = 0x2469c50
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469c80
+block[325] = 0x2469c80
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+malloc found unused block
+
+block[326] = 0x2469cb0
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[327] = 0x246a010
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[328] = 0x246a040
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[329] = 0x246a070
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[330] = 0x246a0a0
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[331] = 0x246a0d0
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[332] = 0x246a100
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[333] = 0x246a130
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[334] = 0x246a160
+before realloc
+realloc case 1, returning: 0x2469ea0
+before malloc
+block[335] = 0x246a190
+before realloc
+old val: 0x2469ea0, new val: 0x246a1c0, size: 337
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469ea0
+block[336] = 0x2469ea0
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469ed0
+block[337] = 0x2469ed0
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469f00
+block[338] = 0x2469f00
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469f30
+block[339] = 0x2469f30
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469f60
+block[340] = 0x2469f60
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x2469f90
+block[341] = 0x2469f90
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+malloc found unused block
+
+block[342] = 0x2469fc0
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[343] = 0x246a340
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[344] = 0x246a370
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[345] = 0x246a3a0
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[346] = 0x246a3d0
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[347] = 0x246a400
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[348] = 0x246a430
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[349] = 0x246a460
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[350] = 0x246a490
+before realloc
+realloc case 1, returning: 0x246a1c0
+before malloc
+block[351] = 0x246a4c0
+before realloc
+old val: 0x246a1c0, new val: 0x246a4f0, size: 353
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a1c0
+block[352] = 0x246a1c0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a1f0
+block[353] = 0x246a1f0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a220
+block[354] = 0x246a220
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a250
+block[355] = 0x246a250
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a280
+block[356] = 0x246a280
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a2b0
+block[357] = 0x246a2b0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a2e0
+block[358] = 0x246a2e0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+malloc found unused block
+
+block[359] = 0x246a310
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[360] = 0x246a680
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[361] = 0x246a6b0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[362] = 0x246a6e0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[363] = 0x246a710
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[364] = 0x246a740
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[365] = 0x246a770
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[366] = 0x246a7a0
+before realloc
+realloc case 1, returning: 0x246a4f0
+before malloc
+block[367] = 0x246a7d0
+before realloc
+old val: 0x246a4f0, new val: 0x246a800, size: 369
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a4f0
+block[368] = 0x246a4f0
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a520
+block[369] = 0x246a520
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a550
+block[370] = 0x246a550
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a580
+block[371] = 0x246a580
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a5b0
+block[372] = 0x246a5b0
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a5e0
+block[373] = 0x246a5e0
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a610
+block[374] = 0x246a610
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+malloc found unused block
+
+block[375] = 0x246a640
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[376] = 0x246a9a0
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[377] = 0x246a9d0
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[378] = 0x246aa00
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[379] = 0x246aa30
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[380] = 0x246aa60
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[381] = 0x246aa90
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[382] = 0x246aac0
+before realloc
+realloc case 1, returning: 0x246a800
+before malloc
+block[383] = 0x246aaf0
+before realloc
+old val: 0x246a800, new val: 0x246ab20, size: 385
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a800
+block[384] = 0x246a800
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a830
+block[385] = 0x246a830
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a860
+block[386] = 0x246a860
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a890
+block[387] = 0x246a890
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a8c0
+block[388] = 0x246a8c0
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a8f0
+block[389] = 0x246a8f0
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246a920
+block[390] = 0x246a920
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+malloc found unused block
+
+block[391] = 0x246a950
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[392] = 0x246acd0
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[393] = 0x246ad00
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[394] = 0x246ad30
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[395] = 0x246ad60
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[396] = 0x246ad90
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[397] = 0x246adc0
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[398] = 0x246adf0
+before realloc
+realloc case 1, returning: 0x246ab20
+before malloc
+block[399] = 0x246ae20
+before realloc
+old val: 0x246ab20, new val: 0x246ae50, size: 401
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ab20
+block[400] = 0x246ab20
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ab50
+block[401] = 0x246ab50
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ab80
+block[402] = 0x246ab80
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246abb0
+block[403] = 0x246abb0
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246abe0
+block[404] = 0x246abe0
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ac10
+block[405] = 0x246ac10
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ac40
+block[406] = 0x246ac40
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ac70
+block[407] = 0x246ac70
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+malloc found unused block
+
+block[408] = 0x246aca0
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[409] = 0x246b010
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[410] = 0x246b040
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[411] = 0x246b070
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[412] = 0x246b0a0
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[413] = 0x246b0d0
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[414] = 0x246b100
+before realloc
+realloc case 1, returning: 0x246ae50
+before malloc
+block[415] = 0x246b130
+before realloc
+old val: 0x246ae50, new val: 0x246b160, size: 417
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ae50
+block[416] = 0x246ae50
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ae80
+block[417] = 0x246ae80
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246aeb0
+block[418] = 0x246aeb0
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246aee0
+block[419] = 0x246aee0
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246af10
+block[420] = 0x246af10
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246af40
+block[421] = 0x246af40
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246af70
+block[422] = 0x246af70
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246afa0
+block[423] = 0x246afa0
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+malloc found unused block
+
+block[424] = 0x246afd0
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[425] = 0x246b330
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[426] = 0x246b360
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[427] = 0x246b390
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[428] = 0x246b3c0
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[429] = 0x246b3f0
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[430] = 0x246b420
+before realloc
+realloc case 1, returning: 0x246b160
+before malloc
+block[431] = 0x246b450
+before realloc
+old val: 0x246b160, new val: 0x246b480, size: 433
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b160
+block[432] = 0x246b160
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b190
+block[433] = 0x246b190
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b1c0
+block[434] = 0x246b1c0
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b1f0
+block[435] = 0x246b1f0
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b220
+block[436] = 0x246b220
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b250
+block[437] = 0x246b250
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b280
+block[438] = 0x246b280
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b2b0
+block[439] = 0x246b2b0
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+malloc found unused block
+
+block[440] = 0x246b2e0
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[441] = 0x246b660
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[442] = 0x246b690
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[443] = 0x246b6c0
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[444] = 0x246b6f0
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[445] = 0x246b720
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[446] = 0x246b750
+before realloc
+realloc case 1, returning: 0x246b480
+before malloc
+block[447] = 0x246b780
+before realloc
+old val: 0x246b480, new val: 0x246b7b0, size: 449
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b480
+block[448] = 0x246b480
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b4b0
+block[449] = 0x246b4b0
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b4e0
+block[450] = 0x246b4e0
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b510
+block[451] = 0x246b510
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b540
+block[452] = 0x246b540
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b570
+block[453] = 0x246b570
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b5a0
+block[454] = 0x246b5a0
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b5d0
+block[455] = 0x246b5d0
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b600
+block[456] = 0x246b600
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+malloc found unused block
+
+block[457] = 0x246b630
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+block[458] = 0x246b9a0
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+block[459] = 0x246b9d0
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+block[460] = 0x246ba00
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+block[461] = 0x246ba30
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+block[462] = 0x246ba60
+before realloc
+realloc case 1, returning: 0x246b7b0
+before malloc
+block[463] = 0x246ba90
+before realloc
+old val: 0x246b7b0, new val: 0x246bac0, size: 465
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b7b0
+block[464] = 0x246b7b0
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b7e0
+block[465] = 0x246b7e0
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b810
+block[466] = 0x246b810
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b840
+block[467] = 0x246b840
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b870
+block[468] = 0x246b870
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b8a0
+block[469] = 0x246b8a0
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b8d0
+block[470] = 0x246b8d0
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b900
+block[471] = 0x246b900
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246b930
+block[472] = 0x246b930
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+malloc found unused block
+
+block[473] = 0x246b960
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+block[474] = 0x246bcc0
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+block[475] = 0x246bcf0
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+block[476] = 0x246bd20
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+block[477] = 0x246bd50
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+block[478] = 0x246bd80
+before realloc
+realloc case 1, returning: 0x246bac0
+before malloc
+block[479] = 0x246bdb0
+before realloc
+old val: 0x246bac0, new val: 0x246bde0, size: 481
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bac0
+block[480] = 0x246bac0
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246baf0
+block[481] = 0x246baf0
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bb20
+block[482] = 0x246bb20
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bb50
+block[483] = 0x246bb50
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bb80
+block[484] = 0x246bb80
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bbb0
+block[485] = 0x246bbb0
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bbe0
+block[486] = 0x246bbe0
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bc10
+block[487] = 0x246bc10
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bc40
+block[488] = 0x246bc40
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+malloc found unused block
+
+block[489] = 0x246bc70
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+block[490] = 0x246bff0
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+block[491] = 0x246c020
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+block[492] = 0x246c050
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+block[493] = 0x246c080
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+block[494] = 0x246c0b0
+before realloc
+realloc case 1, returning: 0x246bde0
+before malloc
+block[495] = 0x246c0e0
+before realloc
+old val: 0x246bde0, new val: 0x246c110, size: 497
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bde0
+block[496] = 0x246bde0
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246be10
+block[497] = 0x246be10
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246be40
+block[498] = 0x246be40
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246be70
+block[499] = 0x246be70
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bea0
+block[500] = 0x246bea0
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bed0
+block[501] = 0x246bed0
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bf00
+block[502] = 0x246bf00
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bf30
+block[503] = 0x246bf30
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bf60
+block[504] = 0x246bf60
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246bf90
+block[505] = 0x246bf90
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+malloc found unused block
+
+block[506] = 0x246bfc0
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+block[507] = 0x246c330
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+block[508] = 0x246c360
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+block[509] = 0x246c390
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+block[510] = 0x246c3c0
+before realloc
+realloc case 1, returning: 0x246c110
+before malloc
+block[511] = 0x246c3f0
+before realloc
+old val: 0x246c110, new val: 0x246c420, size: 513
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c110
+block[512] = 0x246c110
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c140
+block[513] = 0x246c140
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c170
+block[514] = 0x246c170
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c1a0
+block[515] = 0x246c1a0
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c1d0
+block[516] = 0x246c1d0
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c200
+block[517] = 0x246c200
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c230
+block[518] = 0x246c230
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c260
+block[519] = 0x246c260
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c290
+block[520] = 0x246c290
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c2c0
+block[521] = 0x246c2c0
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+malloc found unused block
+
+block[522] = 0x246c2f0
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+block[523] = 0x246c650
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+block[524] = 0x246c680
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+block[525] = 0x246c6b0
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+block[526] = 0x246c6e0
+before realloc
+realloc case 1, returning: 0x246c420
+before malloc
+block[527] = 0x246c710
+before realloc
+old val: 0x246c420, new val: 0x246c740, size: 529
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c420
+block[528] = 0x246c420
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c450
+block[529] = 0x246c450
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c480
+block[530] = 0x246c480
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c4b0
+block[531] = 0x246c4b0
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c4e0
+block[532] = 0x246c4e0
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c510
+block[533] = 0x246c510
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c540
+block[534] = 0x246c540
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c570
+block[535] = 0x246c570
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c5a0
+block[536] = 0x246c5a0
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c5d0
+block[537] = 0x246c5d0
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+malloc found unused block
+
+block[538] = 0x246c600
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+block[539] = 0x246c980
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+block[540] = 0x246c9b0
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+block[541] = 0x246c9e0
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+block[542] = 0x246ca10
+before realloc
+realloc case 1, returning: 0x246c740
+before malloc
+block[543] = 0x246ca40
+before realloc
+old val: 0x246c740, new val: 0x246ca70, size: 545
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c740
+block[544] = 0x246c740
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c770
+block[545] = 0x246c770
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c7a0
+block[546] = 0x246c7a0
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c7d0
+block[547] = 0x246c7d0
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c800
+block[548] = 0x246c800
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c830
+block[549] = 0x246c830
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c860
+block[550] = 0x246c860
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c890
+block[551] = 0x246c890
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c8c0
+block[552] = 0x246c8c0
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c8f0
+block[553] = 0x246c8f0
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246c920
+block[554] = 0x246c920
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+malloc found unused block
+
+block[555] = 0x246c950
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+block[556] = 0x246ccc0
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+block[557] = 0x246ccf0
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+block[558] = 0x246cd20
+before realloc
+realloc case 1, returning: 0x246ca70
+before malloc
+block[559] = 0x246cd50
+before realloc
+old val: 0x246ca70, new val: 0x246cd80, size: 561
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ca70
+block[560] = 0x246ca70
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246caa0
+block[561] = 0x246caa0
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cad0
+block[562] = 0x246cad0
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cb00
+block[563] = 0x246cb00
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cb30
+block[564] = 0x246cb30
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cb60
+block[565] = 0x246cb60
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cb90
+block[566] = 0x246cb90
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cbc0
+block[567] = 0x246cbc0
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cbf0
+block[568] = 0x246cbf0
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cc20
+block[569] = 0x246cc20
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cc50
+block[570] = 0x246cc50
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+malloc found unused block
+
+block[571] = 0x246cc80
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+block[572] = 0x246cfe0
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+block[573] = 0x246d010
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+block[574] = 0x246d040
+before realloc
+realloc case 1, returning: 0x246cd80
+before malloc
+block[575] = 0x246d070
+before realloc
+old val: 0x246cd80, new val: 0x246d0a0, size: 577
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cd80
+block[576] = 0x246cd80
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cdb0
+block[577] = 0x246cdb0
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cde0
+block[578] = 0x246cde0
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ce10
+block[579] = 0x246ce10
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ce40
+block[580] = 0x246ce40
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ce70
+block[581] = 0x246ce70
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cea0
+block[582] = 0x246cea0
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ced0
+block[583] = 0x246ced0
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cf00
+block[584] = 0x246cf00
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cf30
+block[585] = 0x246cf30
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246cf60
+block[586] = 0x246cf60
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+malloc found unused block
+
+block[587] = 0x246cf90
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+block[588] = 0x246d310
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+block[589] = 0x246d340
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+block[590] = 0x246d370
+before realloc
+realloc case 1, returning: 0x246d0a0
+before malloc
+block[591] = 0x246d3a0
+before realloc
+old val: 0x246d0a0, new val: 0x246d3d0, size: 593
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d0a0
+block[592] = 0x246d0a0
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d0d0
+block[593] = 0x246d0d0
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d100
+block[594] = 0x246d100
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d130
+block[595] = 0x246d130
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d160
+block[596] = 0x246d160
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d190
+block[597] = 0x246d190
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d1c0
+block[598] = 0x246d1c0
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d1f0
+block[599] = 0x246d1f0
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d220
+block[600] = 0x246d220
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d250
+block[601] = 0x246d250
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d280
+block[602] = 0x246d280
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d2b0
+block[603] = 0x246d2b0
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+malloc found unused block
+
+block[604] = 0x246d2e0
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+block[605] = 0x246d650
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+block[606] = 0x246d680
+before realloc
+realloc case 1, returning: 0x246d3d0
+before malloc
+block[607] = 0x246d6b0
+before realloc
+old val: 0x246d3d0, new val: 0x246d6e0, size: 609
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d3d0
+block[608] = 0x246d3d0
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d400
+block[609] = 0x246d400
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d430
+block[610] = 0x246d430
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d460
+block[611] = 0x246d460
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d490
+block[612] = 0x246d490
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d4c0
+block[613] = 0x246d4c0
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d4f0
+block[614] = 0x246d4f0
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d520
+block[615] = 0x246d520
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d550
+block[616] = 0x246d550
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d580
+block[617] = 0x246d580
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d5b0
+block[618] = 0x246d5b0
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d5e0
+block[619] = 0x246d5e0
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+malloc found unused block
+
+block[620] = 0x246d610
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+block[621] = 0x246d970
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+block[622] = 0x246d9a0
+before realloc
+realloc case 1, returning: 0x246d6e0
+before malloc
+block[623] = 0x246d9d0
+before realloc
+old val: 0x246d6e0, new val: 0x246da00, size: 625
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d6e0
+block[624] = 0x246d6e0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d710
+block[625] = 0x246d710
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d740
+block[626] = 0x246d740
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d770
+block[627] = 0x246d770
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d7a0
+block[628] = 0x246d7a0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d7d0
+block[629] = 0x246d7d0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d800
+block[630] = 0x246d800
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d830
+block[631] = 0x246d830
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d860
+block[632] = 0x246d860
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d890
+block[633] = 0x246d890
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d8c0
+block[634] = 0x246d8c0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246d8f0
+block[635] = 0x246d8f0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+malloc found unused block
+
+block[636] = 0x246d920
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+block[637] = 0x246dca0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+block[638] = 0x246dcd0
+before realloc
+realloc case 1, returning: 0x246da00
+before malloc
+block[639] = 0x246dd00
+before realloc
+old val: 0x246da00, new val: 0x246dd30, size: 641
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246da00
+block[640] = 0x246da00
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246da30
+block[641] = 0x246da30
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246da60
+block[642] = 0x246da60
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246da90
+block[643] = 0x246da90
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dac0
+block[644] = 0x246dac0
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246daf0
+block[645] = 0x246daf0
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246db20
+block[646] = 0x246db20
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246db50
+block[647] = 0x246db50
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246db80
+block[648] = 0x246db80
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dbb0
+block[649] = 0x246dbb0
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dbe0
+block[650] = 0x246dbe0
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dc10
+block[651] = 0x246dc10
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dc40
+block[652] = 0x246dc40
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+malloc found unused block
+
+block[653] = 0x246dc70
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+block[654] = 0x246dfe0
+before realloc
+realloc case 1, returning: 0x246dd30
+before malloc
+block[655] = 0x246e010
+before realloc
+old val: 0x246dd30, new val: 0x246e040, size: 657
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dd30
+block[656] = 0x246dd30
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dd60
+block[657] = 0x246dd60
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dd90
+block[658] = 0x246dd90
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ddc0
+block[659] = 0x246ddc0
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ddf0
+block[660] = 0x246ddf0
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246de20
+block[661] = 0x246de20
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246de50
+block[662] = 0x246de50
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246de80
+block[663] = 0x246de80
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246deb0
+block[664] = 0x246deb0
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246dee0
+block[665] = 0x246dee0
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246df10
+block[666] = 0x246df10
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246df40
+block[667] = 0x246df40
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246df70
+block[668] = 0x246df70
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+malloc found unused block
+
+block[669] = 0x246dfa0
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+block[670] = 0x246e300
+before realloc
+realloc case 1, returning: 0x246e040
+before malloc
+block[671] = 0x246e330
+before realloc
+old val: 0x246e040, new val: 0x246e360, size: 673
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e040
+block[672] = 0x246e040
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e070
+block[673] = 0x246e070
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e0a0
+block[674] = 0x246e0a0
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e0d0
+block[675] = 0x246e0d0
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e100
+block[676] = 0x246e100
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e130
+block[677] = 0x246e130
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e160
+block[678] = 0x246e160
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e190
+block[679] = 0x246e190
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e1c0
+block[680] = 0x246e1c0
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e1f0
+block[681] = 0x246e1f0
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e220
+block[682] = 0x246e220
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e250
+block[683] = 0x246e250
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e280
+block[684] = 0x246e280
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+malloc found unused block
+
+block[685] = 0x246e2b0
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+block[686] = 0x246e630
+before realloc
+realloc case 1, returning: 0x246e360
+before malloc
+block[687] = 0x246e660
+before realloc
+old val: 0x246e360, new val: 0x246e690, size: 689
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e360
+block[688] = 0x246e360
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e390
+block[689] = 0x246e390
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e3c0
+block[690] = 0x246e3c0
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e3f0
+block[691] = 0x246e3f0
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e420
+block[692] = 0x246e420
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e450
+block[693] = 0x246e450
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e480
+block[694] = 0x246e480
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e4b0
+block[695] = 0x246e4b0
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e4e0
+block[696] = 0x246e4e0
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e510
+block[697] = 0x246e510
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e540
+block[698] = 0x246e540
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e570
+block[699] = 0x246e570
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e5a0
+block[700] = 0x246e5a0
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e5d0
+block[701] = 0x246e5d0
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+malloc found unused block
+
+block[702] = 0x246e600
+before realloc
+realloc case 1, returning: 0x246e690
+before malloc
+block[703] = 0x246e970
+before realloc
+old val: 0x246e690, new val: 0x246e9a0, size: 705
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e690
+block[704] = 0x246e690
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e6c0
+block[705] = 0x246e6c0
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e6f0
+block[706] = 0x246e6f0
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e720
+block[707] = 0x246e720
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e750
+block[708] = 0x246e750
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e780
+block[709] = 0x246e780
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e7b0
+block[710] = 0x246e7b0
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e7e0
+block[711] = 0x246e7e0
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e810
+block[712] = 0x246e810
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e840
+block[713] = 0x246e840
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e870
+block[714] = 0x246e870
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e8a0
+block[715] = 0x246e8a0
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e8d0
+block[716] = 0x246e8d0
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e900
+block[717] = 0x246e900
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+malloc found unused block
+
+block[718] = 0x246e930
+before realloc
+realloc case 1, returning: 0x246e9a0
+before malloc
+block[719] = 0x246ec90
+before realloc
+old val: 0x246e9a0, new val: 0x246ecc0, size: 721
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e9a0
+block[720] = 0x246e9a0
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246e9d0
+block[721] = 0x246e9d0
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ea00
+block[722] = 0x246ea00
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ea30
+block[723] = 0x246ea30
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ea60
+block[724] = 0x246ea60
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ea90
+block[725] = 0x246ea90
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eac0
+block[726] = 0x246eac0
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eaf0
+block[727] = 0x246eaf0
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eb20
+block[728] = 0x246eb20
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eb50
+block[729] = 0x246eb50
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eb80
+block[730] = 0x246eb80
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ebb0
+block[731] = 0x246ebb0
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ebe0
+block[732] = 0x246ebe0
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ec10
+block[733] = 0x246ec10
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+malloc found unused block
+
+block[734] = 0x246ec40
+before realloc
+realloc case 1, returning: 0x246ecc0
+before malloc
+block[735] = 0x246efc0
+before realloc
+old val: 0x246ecc0, new val: 0x246eff0, size: 737
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ecc0
+block[736] = 0x246ecc0
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ecf0
+block[737] = 0x246ecf0
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ed20
+block[738] = 0x246ed20
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ed50
+block[739] = 0x246ed50
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ed80
+block[740] = 0x246ed80
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246edb0
+block[741] = 0x246edb0
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ede0
+block[742] = 0x246ede0
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ee10
+block[743] = 0x246ee10
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ee40
+block[744] = 0x246ee40
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ee70
+block[745] = 0x246ee70
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eea0
+block[746] = 0x246eea0
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246eed0
+block[747] = 0x246eed0
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ef00
+block[748] = 0x246ef00
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ef30
+block[749] = 0x246ef30
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+malloc is splitting block: 0x246ef60
+block[750] = 0x246ef60
+before realloc
+realloc case 1, returning: 0x246eff0
+before malloc
+malloc found unused block
+
+block[751] = 0x246ef90
+before realloc
+old val: 0x246eff0, new val: 0x246f300, size: 753
+...contents not properly copied...before malloc
+block[752] = 0x246f620
+FAILED.
